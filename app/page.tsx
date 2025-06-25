@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Building, Wrench, Hammer, ShieldCheck, Drill, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,7 +57,14 @@ export default function Home() {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex items-center">
+              <Image 
+                src="/logo.png" 
+                alt="Oli Abbruch Logo" 
+                width={40} 
+                height={40} 
+                className="mr-3"
+              />
               <h2 className={`text-2xl font-bold transition-colors duration-300 ${
                 scrolled ? 'text-gray-900' : 'text-white'
               }`}>
@@ -306,7 +314,16 @@ export default function Home() {
       <footer className="bg-black py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h3 className="text-3xl font-bold text-white mb-4">OLI ABBRUCH</h3>
+            <div className="flex items-center justify-center mb-4">
+              <Image 
+                src="/logo.png" 
+                alt="Oli Abbruch Logo" 
+                width={32} 
+                height={32} 
+                className="mr-3"
+              />
+              <h3 className="text-3xl font-bold text-white">OLI ABBRUCH</h3>
+            </div>
             <p className="text-orange-400 text-lg mb-6">Profis Am Werk</p>
             <div className="flex justify-center space-x-8 text-gray-400">
               <a href="tel:+4915901425683" className="hover:text-orange-400 transition-colors duration-300">
