@@ -56,16 +56,25 @@ export default function Home() {
         scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className={`flex justify-between items-center transition-all duration-300 ${
+            scrolled ? 'h-16' : 'h-20'
+          }`}>
             <div className="flex-shrink-0 flex items-center">
               <Image 
                 src="/logo.png" 
                 alt="Oli Abbruch Logo" 
-                width={40} 
-                height={40} 
-                className="mr-3"
+                width={scrolled ? 50 : 70} 
+                height={scrolled ? 50 : 70} 
+                className={`mr-4 transition-all duration-300 ${
+                  scrolled ? 'w-12 h-12' : 'w-16 h-16'
+                }`}
+                priority
               />
-             
+              <h2 className={`text-2xl md:text-3xl font-bold transition-colors duration-300 ${
+                scrolled ? 'text-gray-900' : 'text-white'
+              }`}>
+                OLI ABBRUCH
+              </h2>
             </div>
             
             {/* Desktop Navigation */}
@@ -314,9 +323,9 @@ export default function Home() {
               <Image 
                 src="/logo.png" 
                 alt="Oli Abbruch Logo" 
-                width={32} 
-                height={32} 
-                className="mr-3"
+                width={48} 
+                height={48} 
+                className="mr-4"
               />
               <h3 className="text-3xl font-bold text-white">OLI ABBRUCH</h3>
             </div>
