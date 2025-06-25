@@ -59,22 +59,17 @@ export default function Home() {
           <div className={`flex justify-between items-center transition-all duration-300 ${
             scrolled ? 'h-16' : 'h-20'
           }`}>
-            <div className="flex-shrink-0 flex items-center">
+            <div className="flex-shrink-0">
               <Image 
                 src="/logo.png" 
                 alt="Oli Abbruch Logo" 
                 width={scrolled ? 50 : 70} 
                 height={scrolled ? 50 : 70} 
-                className={`mr-4 transition-all duration-300 ${
+                className={`transition-all duration-300 ${
                   scrolled ? 'w-12 h-12' : 'w-16 h-16'
                 }`}
                 priority
               />
-              <h2 className={`text-2xl md:text-3xl font-bold transition-colors duration-300 ${
-                scrolled ? 'text-gray-900' : 'text-white'
-              }`}>
-                OLI ABBRUCH
-              </h2>
             </div>
             
             {/* Desktop Navigation */}
