@@ -65,11 +65,7 @@ export default function Home() {
                 height={40} 
                 className="mr-3"
               />
-              <h2 className={`text-2xl font-bold transition-colors duration-300 ${
-                scrolled ? 'text-gray-900' : 'text-white'
-              }`}>
-                OLI ABBRUCH
-              </h2>
+             
             </div>
             
             {/* Desktop Navigation */}
