@@ -187,8 +187,8 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center">
+      {/* Hero Section - Fixed spacing for mobile */}
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-32 sm:pt-40 md:pt-44 lg:pt-48">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -198,26 +198,26 @@ export default function Home() {
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         </div>
         
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4 py-8">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
             OLI ABBRUCH
           </h1>
-          <p className="text-xl sm:text-2xl md:text-3xl mb-8 text-orange-400 font-semibold">
+          <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl mb-6 sm:mb-8 text-orange-400 font-semibold">
             Profis Am Werk
           </p>
-          <p className="text-lg sm:text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2">
             Ihr zuverlässiger Partner für professionelle Abbruch-, Entkerrungs- und Sanierungsarbeiten in Baden-Württemberg
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <a 
               href="#contact" 
-              className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105"
+              className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-all duration-300 transform hover:scale-105"
             >
               Kostenlose Beratung
             </a>
             <a 
               href="#services" 
-              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300"
+              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-all duration-300"
             >
               Unsere Leistungen
             </a>
