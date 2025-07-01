@@ -55,38 +55,39 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex justify-between items-center transition-all duration-300 ${
-            scrolled ? 'h-20' : 'h-24'
+            scrolled ? 'h-16' : 'h-20'
           }`}>
-            {/* Logo */}
-            <div className="flex-shrink-0 flex items-center">
+            {/* Left spacer for mobile */}
+            <div className="w-10 md:hidden"></div>
+            
+            {/* Centered Logo */}
+            <div className="flex-1 flex justify-center md:justify-start">
               <Image 
                 src="/logo1.jpeg" 
                 alt="Oli Abbruch Logo" 
-                width={scrolled ? 180 : 220} 
+                width={scrolled ? 200 : 250} 
                 height={scrolled ? 60 : 75} 
                 className={`transition-all duration-300 object-contain ${
-                  scrolled ? 'h-14' : 'h-16'
+                  scrolled ? 'h-12' : 'h-16'
                 }`}
                 priority
               />
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#home" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
-                  Home
-                </a>
-                <a href="#services" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
-                  Leistungen
-                </a>
-                <a href="#about" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
-                  Über uns
-                </a>
-                <a href="#contact" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
-                  Kontakt
-                </a>
-              </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#home" className="text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
+                Home
+              </a>
+              <a href="#services" className="text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
+                Leistungen
+              </a>
+              <a href="#about" className="text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
+                Über uns
+              </a>
+              <a href="#contact" className="text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
+                Kontakt
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -102,39 +103,86 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-        } overflow-hidden bg-white shadow-lg border-t border-gray-200`}>
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <a 
-              href="#home" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-gray-50 transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </a>
-            <a 
-              href="#services" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-gray-50 transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Leistungen
-            </a>
-            <a 
-              href="#about" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-gray-50 transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Über uns
-            </a>
-            <a 
-              href="#contact" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-gray-50 transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Kontakt
-            </a>
+        {/* Mobile Navigation Overlay */}
+        <div className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
+          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}>
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black bg-opacity-50"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+          
+          {/* Menu Panel */}
+          <div className={`absolute top-0 right-0 h-full w-80 max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}>
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                <h2 className="text-lg font-semibold text-gray-900">Menü</h2>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              
+              {/* Navigation Links */}
+              <nav className="flex-1 px-6 py-6">
+                <div className="space-y-4">
+                  <a 
+                    href="#home" 
+                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Home
+                  </a>
+                  <a 
+                    href="#services" 
+                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Leistungen
+                  </a>
+                  <a 
+                    href="#about" 
+                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Über uns
+                  </a>
+                  <a 
+                    href="#contact" 
+                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Kontakt
+                  </a>
+                </div>
+              </nav>
+              
+              {/* Contact Info */}
+              <div className="px-6 py-6 border-t border-gray-200 bg-gray-50">
+                <div className="space-y-3">
+                  <a 
+                    href="tel:+4915901425683" 
+                    className="flex items-center text-sm text-gray-600 hover:text-orange-600"
+                  >
+                    <Phone className="w-4 h-4 mr-3" />
+                    +49 1590 1425683
+                  </a>
+                  <a 
+                    href="mailto:oliabbruch@gmail.com" 
+                    className="flex items-center text-sm text-gray-600 hover:text-orange-600"
+                  >
+                    <Mail className="w-4 h-4 mr-3" />
+                    oliabbruch@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -326,7 +374,7 @@ export default function Home() {
                 alt="Oli Abbruch Logo" 
                 width={150} 
                 height={50} 
-                className="mr-4 h-12 object-contain"
+                className="h-12 object-contain"
               />
             </div>
             <p className="text-orange-400 text-lg mb-6">Profis Am Werk</p>
