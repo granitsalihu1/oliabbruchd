@@ -170,7 +170,7 @@ export default function Home() {
             Profis Am Werk
           </p>
           <p className="text-lg sm:text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Ihr zuverlässiger Partner für professionelle Abbruch-, Entkerrungs- und Sanierungsarbeiten in Baden-Württemberg
+            Ihr zuverlässiger Partner für professionelle Abbruch-, Entkerungs- und Sanierungsarbeiten in Baden-Württemberg
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
