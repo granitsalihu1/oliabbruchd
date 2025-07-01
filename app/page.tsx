@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Building, Wrench, Hammer, ShieldCheck, Drill, Menu, X } from 'lucide-react';
+import { Phone, Mail, MapPin, Building, Wrench, Hammer, ShieldCheck, Drill, Menu, X, Search } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Home() {
@@ -54,57 +54,57 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`flex justify-between items-center transition-all duration-300 ${
+          <div className={`flex items-center justify-between transition-all duration-300 ${
             scrolled ? 'h-16' : 'h-20'
           }`}>
-            {/* Left spacer for mobile */}
-            <div className="w-10 md:hidden"></div>
             
-            {/* Centered Logo */}
-            <div className="flex-1 flex justify-center md:justify-start">
+            {/* Left - Search Bar */}
+            <div className="flex-1 max-w-xs">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Search className="h-4 w-4 text-gray-400" />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Gehe zu ..."
+                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-orange-500 focus:border-orange-500 text-sm"
+                />
+              </div>
+            </div>
+            
+            {/* Center - Logo */}
+            <div className="flex-1 flex justify-center">
               <Image 
                 src="/logo1.jpeg" 
                 alt="Oli Abbruch Logo" 
-                width={scrolled ? 200 : 250} 
-                height={scrolled ? 60 : 75} 
+                width={scrolled ? 180 : 220} 
+                height={scrolled ? 50 : 60} 
                 className={`transition-all duration-300 object-contain ${
-                  scrolled ? 'h-12' : 'h-16'
+                  scrolled ? 'h-10' : 'h-12'
                 }`}
                 priority
               />
             </div>
             
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
-                Home
-              </a>
-              <a href="#services" className="text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
-                Leistungen
-              </a>
-              <a href="#about" className="text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
-                Über uns
-              </a>
-              <a href="#contact" className="text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
-                Kontakt
-              </a>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
+            {/* Right - Menu Button */}
+            <div className="flex-1 flex justify-end">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-gray-900 hover:text-orange-600 transition-colors duration-300"
+                className="p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300"
                 aria-label="Toggle menu"
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                <div className="flex flex-col space-y-1">
+                  <div className="w-6 h-0.5 bg-current"></div>
+                  <div className="w-6 h-0.5 bg-current"></div>
+                  <div className="w-6 h-0.5 bg-current"></div>
+                </div>
               </button>
             </div>
           </div>
         </div>
 
         {/* Mobile Navigation Overlay */}
-        <div className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
+        <div className={`fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}>
           {/* Backdrop */}
