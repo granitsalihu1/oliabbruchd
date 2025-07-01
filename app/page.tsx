@@ -54,57 +54,118 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
         <div className="w-full px-3 sm:px-4 lg:px-6">
-          {/* Top Row: HUGE Logo Centered */}
-          <div className={`flex justify-center transition-all duration-300 ${
-            scrolled ? 'py-2 sm:py-3' : 'py-4 sm:py-6'
-          }`}>
-            <Image 
-              src="/logo1.jpeg" 
-              alt="Oli Abbruch Logo" 
-              width={scrolled ? 300 : 400} 
-              height={scrolled ? 90 : 120} 
-              className={`transition-all duration-300 object-contain ${
-                scrolled ? 'h-16 sm:h-20 md:h-24' : 'h-20 sm:h-24 md:h-28 lg:h-32'
-              }`}
-              priority
-            />
-          </div>
           
-          {/* Bottom Row: Search Bar (Mobile Only) and Menu Dots */}
-          <div className={`flex items-center justify-center gap-3 pb-3 sm:pb-4 transition-all duration-300 ${
-            scrolled ? 'pb-2 sm:pb-3' : ''
-          }`}>
-            {/* Search Bar - Only visible on mobile (hidden on md and up) */}
-            <div className="flex-1 max-w-xs sm:max-w-sm md:hidden">
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
-                </div>
-                <input
-                  type="text"
-                  placeholder=""
-                  className="block w-full pl-10 sm:pl-12 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm sm:text-base shadow-sm"
-                />
-              </div>
+          {/* Mobile Layout: Centered Logo + Search + Menu */}
+          <div className="md:hidden">
+            {/* Top Row: HUGE Logo Centered */}
+            <div className={`flex justify-center transition-all duration-300 ${
+              scrolled ? 'py-2 sm:py-3' : 'py-4 sm:py-6'
+            }`}>
+              <Image 
+                src="/logo1.jpeg" 
+                alt="Oli Abbruch Logo" 
+                width={scrolled ? 300 : 400} 
+                height={scrolled ? 90 : 120} 
+                className={`transition-all duration-300 object-contain ${
+                  scrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-24'
+                }`}
+                priority
+              />
             </div>
             
-            {/* Menu Dots - Always visible */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300 flex-shrink-0"
-              aria-label="Toggle menu"
-            >
-              <div className="flex flex-col space-y-1">
-                <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
-                <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
-                <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
+            {/* Bottom Row: Search Bar and Menu Dots */}
+            <div className={`flex items-center justify-center gap-3 pb-3 sm:pb-4 transition-all duration-300 ${
+              scrolled ? 'pb-2 sm:pb-3' : ''
+            }`}>
+              {/* Search Bar */}
+              <div className="flex-1 max-w-xs sm:max-w-sm">
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Search className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder=""
+                    className="block w-full pl-10 sm:pl-12 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm sm:text-base shadow-sm"
+                  />
+                </div>
               </div>
-            </button>
+              
+              {/* Menu Dots */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300 flex-shrink-0"
+                aria-label="Toggle menu"
+              >
+                <div className="flex flex-col space-y-1">
+                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
+                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
+                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop Layout: Logo Left + Navigation Right */}
+          <div className="hidden md:flex items-center justify-between py-4 lg:py-6">
+            {/* Logo on the left */}
+            <div className="flex-shrink-0">
+              <Image 
+                src="/logo1.jpeg" 
+                alt="Oli Abbruch Logo" 
+                width={scrolled ? 180 : 220} 
+                height={scrolled ? 60 : 80} 
+                className={`transition-all duration-300 object-contain ${
+                  scrolled ? 'h-12 lg:h-16' : 'h-16 lg:h-20'
+                }`}
+                priority
+              />
+            </div>
+            
+            {/* Navigation Menu on the right */}
+            <div className="flex items-center space-x-8 lg:space-x-12">
+              <a 
+                href="#home" 
+                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              >
+                Abbruch
+              </a>
+              <a 
+                href="#services" 
+                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              >
+                Erdbau
+              </a>
+              <a 
+                href="#about" 
+                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              >
+                Tiefbau
+              </a>
+              <a 
+                href="#contact" 
+                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              >
+                Weitere Dienstleistungen
+              </a>
+              <a 
+                href="#about" 
+                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              >
+                Über uns
+              </a>
+              <a 
+                href="#contact" 
+                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              >
+                Kontakt
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Mobile Navigation Overlay */}
-        <div className={`fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
+        <div className={`fixed inset-0 z-40 transition-all duration-300 ease-in-out md:hidden ${
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}>
           {/* Backdrop */}
@@ -118,31 +179,15 @@ export default function Home() {
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}>
             <div className="flex flex-col h-full">
-              {/* Header with Search for Desktop Users */}
-              <div className="flex flex-col border-b border-gray-200">
-                <div className="flex items-center justify-between p-4 sm:p-6">
-                  <h2 className="text-lg font-semibold text-gray-900">Menü</h2>
-                  <button
-                    onClick={() => setIsMenuOpen(false)}
-                    className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-                
-                {/* Search Bar for Desktop Users (hidden on mobile since it's already in nav) */}
-                <div className="px-4 sm:px-6 pb-4 hidden md:block">
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <Search className="h-4 w-4 text-gray-400" />
-                    </div>
-                    <input
-                      type="text"
-                      placeholder="Suchen..."
-                      className="block w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm shadow-sm"
-                    />
-                  </div>
-                </div>
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
+                <h2 className="text-lg font-semibold text-gray-900">Menü</h2>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
               
               {/* Navigation Links */}
@@ -153,14 +198,28 @@ export default function Home() {
                     className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Home
+                    Abbruch
                   </a>
                   <a 
                     href="#services" 
                     className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Leistungen
+                    Erdbau
+                  </a>
+                  <a 
+                    href="#about" 
+                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Tiefbau
+                  </a>
+                  <a 
+                    href="#contact" 
+                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Weitere Dienstleistungen
                   </a>
                   <a 
                     href="#about" 
@@ -203,8 +262,8 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Fixed spacing for mobile */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-32 sm:pt-40 md:pt-44 lg:pt-48">
+      {/* Hero Section - Adjusted spacing for different layouts */}
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-32 sm:pt-40 md:pt-24 lg:pt-28">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
