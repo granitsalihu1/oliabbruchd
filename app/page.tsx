@@ -82,7 +82,7 @@ export default function Home() {
                 </div>
                 <input
                   type="text"
-                  placeholder="ma posht"
+                  placeholder=""
                   className="block w-full pl-10 sm:pl-12 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm sm:text-base shadow-sm"
                 />
               </div>
