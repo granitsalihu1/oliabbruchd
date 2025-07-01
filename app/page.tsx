@@ -53,52 +53,101 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-3 sm:px-4 lg:px-6">
           <div className={`flex items-center justify-between transition-all duration-300 ${
-            scrolled ? 'h-16' : 'h-20'
+            scrolled ? 'h-14 sm:h-16' : 'h-16 sm:h-20'
           }`}>
             
-            {/* Left - Search Bar */}
-            <div className="flex-1 max-w-xs">
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className="h-4 w-4 text-gray-400" />
+            {/* Mobile Layout (< 768px) */}
+            <div className="flex md:hidden items-center justify-between w-full">
+              {/* Mobile Search */}
+              <div className="flex-1 max-w-[120px] sm:max-w-[150px]">
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+                    <Search className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Gehe zu ..."
+                    className="block w-full pl-7 sm:pl-8 pr-2 py-1.5 sm:py-2 border border-gray-300 rounded-md leading-4 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-orange-500 focus:border-orange-500 text-xs sm:text-sm"
+                  />
                 </div>
-                <input
-                  type="text"
-                  placeholder="Gehe zu ..."
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-orange-500 focus:border-orange-500 text-sm"
+              </div>
+              
+              {/* Mobile Logo */}
+              <div className="flex-1 flex justify-center px-2">
+                <Image 
+                  src="/logo1.jpeg" 
+                  alt="Oli Abbruch Logo" 
+                  width={scrolled ? 100 : 120} 
+                  height={scrolled ? 28 : 32} 
+                  className={`transition-all duration-300 object-contain ${
+                    scrolled ? 'h-6 sm:h-7' : 'h-7 sm:h-8'
+                  }`}
+                  priority
                 />
               </div>
+              
+              {/* Mobile Menu */}
+              <div className="flex-1 flex justify-end">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="p-1.5 sm:p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300"
+                  aria-label="Toggle menu"
+                >
+                  <div className="flex flex-col space-y-0.5 sm:space-y-1">
+                    <div className="w-4 sm:w-5 h-0.5 bg-current"></div>
+                    <div className="w-4 sm:w-5 h-0.5 bg-current"></div>
+                    <div className="w-4 sm:w-5 h-0.5 bg-current"></div>
+                  </div>
+                </button>
+              </div>
             </div>
-            
-            {/* Center - Logo */}
-            <div className="flex-1 flex justify-center">
-              <Image 
-                src="/logo1.jpeg" 
-                alt="Oli Abbruch Logo" 
-                width={scrolled ? 180 : 220} 
-                height={scrolled ? 50 : 60} 
-                className={`transition-all duration-300 object-contain ${
-                  scrolled ? 'h-10' : 'h-12'
-                }`}
-                priority
-              />
-            </div>
-            
-            {/* Right - Menu Button */}
-            <div className="flex-1 flex justify-end">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300"
-                aria-label="Toggle menu"
-              >
-                <div className="flex flex-col space-y-1">
-                  <div className="w-6 h-0.5 bg-current"></div>
-                  <div className="w-6 h-0.5 bg-current"></div>
-                  <div className="w-6 h-0.5 bg-current"></div>
+
+            {/* Desktop Layout (>= 768px) */}
+            <div className="hidden md:flex items-center justify-between w-full">
+              {/* Desktop Search */}
+              <div className="flex-1 max-w-xs lg:max-w-sm">
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Search className="h-4 w-4 text-gray-400" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Gehe zu ..."
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-orange-500 focus:border-orange-500 text-sm"
+                  />
                 </div>
-              </button>
+              </div>
+              
+              {/* Desktop Logo */}
+              <div className="flex-1 flex justify-center px-4">
+                <Image 
+                  src="/logo1.jpeg" 
+                  alt="Oli Abbruch Logo" 
+                  width={scrolled ? 180 : 220} 
+                  height={scrolled ? 50 : 60} 
+                  className={`transition-all duration-300 object-contain ${
+                    scrolled ? 'h-10 lg:h-12' : 'h-12 lg:h-14'
+                  }`}
+                  priority
+                />
+              </div>
+              
+              {/* Desktop Menu */}
+              <div className="flex-1 flex justify-end">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300"
+                  aria-label="Toggle menu"
+                >
+                  <div className="flex flex-col space-y-1">
+                    <div className="w-6 h-0.5 bg-current"></div>
+                    <div className="w-6 h-0.5 bg-current"></div>
+                    <div className="w-6 h-0.5 bg-current"></div>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -114,12 +163,12 @@ export default function Home() {
           ></div>
           
           {/* Menu Panel */}
-          <div className={`absolute top-0 right-0 h-full w-80 max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+          <div className={`absolute top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}>
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200">
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
                 <h2 className="text-lg font-semibold text-gray-900">Menü</h2>
                 <button
                   onClick={() => setIsMenuOpen(false)}
@@ -130,8 +179,8 @@ export default function Home() {
               </div>
               
               {/* Navigation Links */}
-              <nav className="flex-1 px-6 py-6">
-                <div className="space-y-4">
+              <nav className="flex-1 px-4 sm:px-6 py-4 sm:py-6">
+                <div className="space-y-2 sm:space-y-4">
                   <a 
                     href="#home" 
                     className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
@@ -164,7 +213,7 @@ export default function Home() {
               </nav>
               
               {/* Contact Info */}
-              <div className="px-6 py-6 border-t border-gray-200 bg-gray-50">
+              <div className="px-4 sm:px-6 py-4 sm:py-6 border-t border-gray-200 bg-gray-50">
                 <div className="space-y-3">
                   <a 
                     href="tel:+4915901425683" 
