@@ -70,12 +70,12 @@ export default function Home() {
             />
           </div>
           
-          {/* Bottom Row: Search Bar and Menu Dots Close Together */}
+          {/* Bottom Row: Search Bar (Mobile Only) and Menu Dots */}
           <div className={`flex items-center justify-center gap-3 pb-3 sm:pb-4 transition-all duration-300 ${
             scrolled ? 'pb-2 sm:pb-3' : ''
           }`}>
-            {/* Search Bar */}
-            <div className="flex-1 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+            {/* Search Bar - Only visible on mobile (hidden on md and up) */}
+            <div className="flex-1 max-w-xs sm:max-w-sm md:hidden">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Search className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
@@ -88,7 +88,7 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Menu Dots - Close to Search */}
+            {/* Menu Dots - Always visible */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300 flex-shrink-0"
@@ -118,15 +118,31 @@ export default function Home() {
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}>
             <div className="flex flex-col h-full">
-              {/* Header */}
-              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-900">Menü</h2>
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+              {/* Header with Search for Desktop Users */}
+              <div className="flex flex-col border-b border-gray-200">
+                <div className="flex items-center justify-between p-4 sm:p-6">
+                  <h2 className="text-lg font-semibold text-gray-900">Menü</h2>
+                  <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                
+                {/* Search Bar for Desktop Users (hidden on mobile since it's already in nav) */}
+                <div className="px-4 sm:px-6 pb-4 hidden md:block">
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Search className="h-4 w-4 text-gray-400" />
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Suchen..."
+                      className="block w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm shadow-sm"
+                    />
+                  </div>
+                </div>
               </div>
               
               {/* Navigation Links */}
