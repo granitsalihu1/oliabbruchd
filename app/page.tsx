@@ -52,22 +52,20 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
-      }`}>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex justify-between items-center transition-all duration-300 ${
-            scrolled ? 'h-16' : 'h-20'
+            scrolled ? 'h-20' : 'h-24'
           }`}>
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <Image 
                 src="/logo1.jpeg" 
                 alt="Oli Abbruch Logo" 
-                width={scrolled ? 120 : 150} 
-                height={scrolled ? 40 : 50} 
+                width={scrolled ? 180 : 220} 
+                height={scrolled ? 60 : 75} 
                 className={`transition-all duration-300 object-contain ${
-                  scrolled ? 'h-10' : 'h-12'
+                  scrolled ? 'h-14' : 'h-16'
                 }`}
                 priority
               />
@@ -76,24 +74,16 @@ export default function Home() {
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#home" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-                  scrolled ? 'text-gray-900 hover:text-orange-600' : 'text-white hover:text-orange-300'
-                }`}>
+                <a href="#home" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
                   Home
                 </a>
-                <a href="#services" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-                  scrolled ? 'text-gray-900 hover:text-orange-600' : 'text-white hover:text-orange-300'
-                }`}>
+                <a href="#services" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
                   Leistungen
                 </a>
-                <a href="#about" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-                  scrolled ? 'text-gray-900 hover:text-orange-600' : 'text-white hover:text-orange-300'
-                }`}>
+                <a href="#about" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
                   Über uns
                 </a>
-                <a href="#contact" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-                  scrolled ? 'text-gray-900 hover:text-orange-600' : 'text-white hover:text-orange-300'
-                }`}>
+                <a href="#contact" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300">
                   Kontakt
                 </a>
               </div>
@@ -103,9 +93,7 @@ export default function Home() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`p-2 rounded-md transition-colors duration-300 ${
-                  scrolled ? 'text-gray-900 hover:text-orange-600' : 'text-white hover:text-orange-300'
-                }`}
+                className="p-2 rounded-md text-gray-900 hover:text-orange-600 transition-colors duration-300"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -117,7 +105,7 @@ export default function Home() {
         {/* Mobile Navigation */}
         <div className={`md:hidden transition-all duration-300 ease-in-out ${
           isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-        } overflow-hidden bg-white shadow-lg`}>
+        } overflow-hidden bg-white shadow-lg border-t border-gray-200`}>
           <div className="px-2 pt-2 pb-3 space-y-1">
             <a 
               href="#home" 
@@ -170,7 +158,7 @@ export default function Home() {
             Profis Am Werk
           </p>
           <p className="text-lg sm:text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Ihr zuverlässiger Partner für professionelle Abbruch-, Entkerungs- und Sanierungsarbeiten in Baden-Württemberg
+            Ihr zuverlässiger Partner für professionelle Abbruch-, Entkerrungs- und Sanierungsarbeiten in Baden-Württemberg
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
@@ -336,9 +324,9 @@ export default function Home() {
               <Image 
                 src="/logo1.jpeg" 
                 alt="Oli Abbruch Logo" 
-                width={120} 
-                height={40} 
-                className="mr-4 h-10 object-contain"
+                width={150} 
+                height={50} 
+                className="mr-4 h-12 object-contain"
               />
             </div>
             <p className="text-orange-400 text-lg mb-6">Profis Am Werk</p>
