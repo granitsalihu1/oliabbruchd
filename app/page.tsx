@@ -54,99 +54,55 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
         <div className="w-full px-3 sm:px-4 lg:px-6">
+          {/* Top Row: Logo and Menu */}
           <div className={`flex items-center justify-between transition-all duration-300 ${
-            scrolled ? 'h-14 sm:h-16' : 'h-16 sm:h-20'
+            scrolled ? 'h-12 sm:h-14' : 'h-16 sm:h-20'
           }`}>
             
-            {/* Mobile Layout (< 768px) */}
-            <div className="flex md:hidden items-center justify-between w-full">
-              {/* Mobile Search */}
-              <div className="flex-1 max-w-[120px] sm:max-w-[150px]">
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
-                    <Search className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400" />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Gehe zu ..."
-                    className="block w-full pl-7 sm:pl-8 pr-2 py-1.5 sm:py-2 border border-gray-300 rounded-md leading-4 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-orange-500 focus:border-orange-500 text-xs sm:text-sm"
-                  />
-                </div>
-              </div>
-              
-              {/* Mobile Logo */}
-              <div className="flex-1 flex justify-center px-2">
-                <Image 
-                  src="/logo1.jpeg" 
-                  alt="Oli Abbruch Logo" 
-                  width={scrolled ? 100 : 120} 
-                  height={scrolled ? 28 : 32} 
-                  className={`transition-all duration-300 object-contain ${
-                    scrolled ? 'h-6 sm:h-7' : 'h-7 sm:h-8'
-                  }`}
-                  priority
-                />
-              </div>
-              
-              {/* Mobile Menu */}
-              <div className="flex-1 flex justify-end">
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="p-1.5 sm:p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300"
-                  aria-label="Toggle menu"
-                >
-                  <div className="flex flex-col space-y-0.5 sm:space-y-1">
-                    <div className="w-4 sm:w-5 h-0.5 bg-current"></div>
-                    <div className="w-4 sm:w-5 h-0.5 bg-current"></div>
-                    <div className="w-4 sm:w-5 h-0.5 bg-current"></div>
-                  </div>
-                </button>
-              </div>
+            {/* Logo - Centered and Bigger */}
+            <div className="flex-1 flex justify-center">
+              <Image 
+                src="/logo1.jpeg" 
+                alt="Oli Abbruch Logo" 
+                width={scrolled ? 200 : 280} 
+                height={scrolled ? 60 : 80} 
+                className={`transition-all duration-300 object-contain ${
+                  scrolled ? 'h-8 sm:h-10 md:h-12' : 'h-12 sm:h-14 md:h-16'
+                }`}
+                priority
+              />
             </div>
-
-            {/* Desktop Layout (>= 768px) */}
-            <div className="hidden md:flex items-center justify-between w-full">
-              {/* Desktop Search */}
-              <div className="flex-1 max-w-xs lg:max-w-sm">
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Search className="h-4 w-4 text-gray-400" />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Gehe zu ..."
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-orange-500 focus:border-orange-500 text-sm"
-                  />
+            
+            {/* Menu Button - Right Side */}
+            <div className="absolute right-3 sm:right-4 lg:right-6">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300"
+                aria-label="Toggle menu"
+              >
+                <div className="flex flex-col space-y-1">
+                  <div className="w-5 sm:w-6 h-0.5 bg-current"></div>
+                  <div className="w-5 sm:w-6 h-0.5 bg-current"></div>
+                  <div className="w-5 sm:w-6 h-0.5 bg-current"></div>
                 </div>
-              </div>
-              
-              {/* Desktop Logo */}
-              <div className="flex-1 flex justify-center px-4">
-                <Image 
-                  src="/logo1.jpeg" 
-                  alt="Oli Abbruch Logo" 
-                  width={scrolled ? 180 : 220} 
-                  height={scrolled ? 50 : 60} 
-                  className={`transition-all duration-300 object-contain ${
-                    scrolled ? 'h-10 lg:h-12' : 'h-12 lg:h-14'
-                  }`}
-                  priority
+              </button>
+            </div>
+          </div>
+          
+          {/* Bottom Row: Search Bar - Centered Below Logo */}
+          <div className={`flex justify-center pb-3 sm:pb-4 transition-all duration-300 ${
+            scrolled ? 'pb-2 sm:pb-3' : ''
+          }`}>
+            <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Search className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Gehe zu ..."
+                  className="block w-full pl-10 sm:pl-12 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm sm:text-base shadow-sm"
                 />
-              </div>
-              
-              {/* Desktop Menu */}
-              <div className="flex-1 flex justify-end">
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300"
-                  aria-label="Toggle menu"
-                >
-                  <div className="flex flex-col space-y-1">
-                    <div className="w-6 h-0.5 bg-current"></div>
-                    <div className="w-6 h-0.5 bg-current"></div>
-                    <div className="w-6 h-0.5 bg-current"></div>
-                  </div>
-                </button>
               </div>
             </div>
           </div>
