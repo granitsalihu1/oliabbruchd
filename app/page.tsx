@@ -383,12 +383,12 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Kontakt
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Haben Sie Fragen zu unseren Leistungen oder benötigen Sie ein unverbindliches Angebot? Kontaktieren Sie uns - wir beraten Sie gerne!
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+              Mit langjähriger Erfahrung, Kompetenz und methodischem Know-how gehen wir Ihr Projekt an. Kontaktieren Sie uns und vereinbaren Sie einen Termin. Wir freuen uns, mit Ihnen über Ihr Projekt zu sprechen.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="text-center">
               <div className="bg-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Phone className="w-8 h-8" />
@@ -420,14 +420,15 @@ export default function Home() {
                 <MapPin className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Adresse</h3>
-              <p className="text-xl text-gray-300">
-                Marktplatz 10<br />
-                73650 Winterbach
-              </p>
+              <div className="text-xl text-gray-300">
+                <p className="font-semibold text-white mb-2">Ariol Demiri</p>
+                <p>Marktplatz 10</p>
+                <p>73650 Winterbach</p>
+              </div>
             </div>
           </div>
           
-          <div className="mt-16 text-center">
+          <div className="text-center">
             <div className="bg-gray-800 rounded-lg p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold mb-4">Servicegebiet</h3>
               <p className="text-gray-300 text-lg">
