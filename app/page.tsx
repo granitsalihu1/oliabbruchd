@@ -149,6 +149,12 @@ export default function Home() {
                 Weitere Dienstleistungen
               </a>
               <a 
+                href="#gallery" 
+                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              >
+                Galerie
+              </a>
+              <a 
                 href="#about" 
                 className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
               >
@@ -222,6 +228,13 @@ export default function Home() {
                     Weitere Dienstleistungen
                   </a>
                   <a 
+                    href="#gallery" 
+                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Galerie
+                  </a>
+                  <a 
                     href="#about" 
                     className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
@@ -243,14 +256,16 @@ export default function Home() {
                 <div className="space-y-3">
                   <a 
                     href="tel:+4915901425683" 
-                    className="flex items-center text-sm text-gray-600 hover:text-orange-600"
+                    className="flex items-center text-sm text-gray-600"
+                    style={{ color: 'var(--e-global-color-accent)' }}
                   >
                     <Phone className="w-4 h-4 mr-3" />
                     +49 1590 1425683
                   </a>
                   <a 
                     href="mailto:oliabbruch@gmail.com" 
-                    className="flex items-center text-sm text-gray-600 hover:text-orange-600"
+                    className="flex items-center text-sm text-gray-600"
+                    style={{ color: 'var(--e-global-color-accent)' }}
                   >
                     <Mail className="w-4 h-4 mr-3" />
                     oliabbruch@gmail.com
@@ -376,6 +391,116 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section id="gallery" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Unsere Projekte
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Entdecken Sie eine Auswahl unserer erfolgreich abgeschlossenen Abbruch- und Sanierungsprojekte.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <img 
+                src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Abbruchprojekt 1"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <h3 className="text-xl font-bold mb-2">Gebäudeabbruch</h3>
+                  <p className="text-sm">Kompletter Rückbau eines Wohngebäudes</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <img 
+                src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Abbruchprojekt 2"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <h3 className="text-xl font-bold mb-2">Entkernung</h3>
+                  <p className="text-sm">Fachgerechte Entkernung für Sanierung</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <img 
+                src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Abbruchprojekt 3"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <h3 className="text-xl font-bold mb-2">Schadstoffsanierung</h3>
+                  <p className="text-sm">Sichere Asbestentfernung</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <img 
+                src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Abbruchprojekt 4"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <h3 className="text-xl font-bold mb-2">Betonbohren</h3>
+                  <p className="text-sm">Präzise Bohrarbeiten in Beton</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <img 
+                src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Abbruchprojekt 5"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <h3 className="text-xl font-bold mb-2">Demontage</h3>
+                  <p className="text-sm">Sorgfältige Demontage von Anlagen</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <img 
+                src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Abbruchprojekt 6"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <h3 className="text-xl font-bold mb-2">Rückbau</h3>
+                  <p className="text-sm">Kontrollierter Rückbau komplexer Strukturen</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <a 
+              href="#contact" 
+              className="inline-block px-8 py-3 text-white font-bold rounded-lg text-lg transition-all duration-300 transform hover:scale-105"
+              style={{ backgroundColor: 'var(--e-global-color-accent)' }}
+            >
+              Projekt anfragen
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -455,10 +580,18 @@ export default function Home() {
             </div>
             <p className="text-orange-400 text-lg mb-6">Profis Am Werk</p>
             <div className="flex justify-center space-x-8 text-gray-400">
-              <a href="tel:+4915901425683" className="hover:text-orange-400 transition-colors duration-300">
+              <a 
+                href="tel:+4915901425683" 
+                className="transition-colors duration-300"
+                style={{ color: 'var(--e-global-color-accent)' }}
+              >
                 <Phone className="w-6 h-6" />
               </a>
-              <a href="mailto:oliabbruch@gmail.com" className="hover:text-orange-400 transition-colors duration-300">
+              <a 
+                href="mailto:oliabbruch@gmail.com" 
+                className="transition-colors duration-300"
+                style={{ color: 'var(--e-global-color-accent)' }}
+              >
                 <Mail className="w-6 h-6" />
               </a>
             </div>
