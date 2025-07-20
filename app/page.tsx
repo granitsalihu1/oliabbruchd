@@ -301,7 +301,8 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <a 
               href="#contact" 
-              className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-all duration-300 transform hover:scale-105"
+              className="text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-all duration-300 transform hover:scale-105"
+              style={{ backgroundColor: 'var(--e-global-color-accent)' }}
             >
               Kostenlose Beratung
             </a>
@@ -370,7 +371,8 @@ export default function Home() {
               <div className="mt-8">
                 <a 
                   href="#contact" 
-                  className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 inline-block"
+                  className="text-white font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 inline-block hover:opacity-90"
+                  style={{ backgroundColor: 'var(--e-global-color-accent)' }}
                 >
                   Jetzt Kontakt aufnehmen
                 </a>
@@ -383,6 +385,7 @@ export default function Home() {
                 className="rounded-lg shadow-2xl w-full h-96 object-cover"
               />
               <div className="absolute -bottom-6 -right-6 bg-orange-600 text-white p-6 rounded-lg shadow-xl">
+              <div className="absolute -bottom-6 -right-6 text-white p-6 rounded-lg shadow-xl" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
                 <p className="text-2xl font-bold">15+</p>
                 <p className="text-sm">Jahre Erfahrung</p>
               </div>
@@ -492,7 +495,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <a 
               href="#contact" 
-              className="inline-block px-8 py-3 text-white font-bold rounded-lg text-lg transition-all duration-300 transform hover:scale-105"
+              className="inline-block px-8 py-3 text-white font-bold rounded-lg text-lg transition-all duration-300 transform hover:scale-105 hover:opacity-90"
               style={{ backgroundColor: 'var(--e-global-color-accent)' }}
             >
               Projekt anfragen
@@ -515,33 +518,35 @@ export default function Home() {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="text-center">
-              <div className="bg-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
                 <Phone className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Telefon</h3>
               <a 
                 href="tel:+4915901425683" 
-                className="text-xl text-orange-400 hover:text-orange-300 transition-colors duration-300"
+                className="text-xl transition-colors duration-300 hover:opacity-80"
+                style={{ color: 'var(--e-global-color-accent)' }}
               >
                 +49 1590 1425683
               </a>
             </div>
             
             <div className="text-center">
-              <div className="bg-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
                 <Mail className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-bold mb-4">E-Mail</h3>
               <a 
                 href="mailto:oliabbruch@gmail.com" 
-                className="text-xl text-orange-400 hover:text-orange-300 transition-colors duration-300"
+                className="text-xl transition-colors duration-300 hover:opacity-80"
+                style={{ color: 'var(--e-global-color-accent)' }}
               >
                 oliabbruch@gmail.com
               </a>
             </div>
             
             <div className="text-center">
-              <div className="bg-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
                 <MapPin className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Adresse</h3>
@@ -554,9 +559,9 @@ export default function Home() {
           </div>
           
           <div className="text-center">
-            <div className="bg-gray-800 rounded-lg p-8 max-w-2xl mx-auto">
+            <div className="rounded-lg p-8 max-w-2xl mx-auto text-white" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
               <h3 className="text-2xl font-bold mb-4">Servicegebiet</h3>
-              <p className="text-gray-300 text-lg">
+              <p className="text-white text-lg opacity-90">
                 Wir sind in ganz Baden-Württemberg und den angrenzenden Regionen für Sie tätig. 
                 Gerne erstellen wir Ihnen ein individuelles Angebot für Ihr Projekt.
               </p>
@@ -579,17 +584,18 @@ export default function Home() {
               />
             </div>
             <p className="text-orange-400 text-lg mb-6">Profis Am Werk</p>
+            <p className="text-lg mb-6" style={{ color: 'var(--e-global-color-accent)' }}>Profis Am Werk</p>
             <div className="flex justify-center space-x-8 text-gray-400">
               <a 
                 href="tel:+4915901425683" 
-                className="transition-colors duration-300"
+                className="transition-colors duration-300 hover:opacity-80"
                 style={{ color: 'var(--e-global-color-accent)' }}
               >
                 <Phone className="w-6 h-6" />
               </a>
               <a 
                 href="mailto:oliabbruch@gmail.com" 
-                className="transition-colors duration-300"
+                className="transition-colors duration-300 hover:opacity-80"
                 style={{ color: 'var(--e-global-color-accent)' }}
               >
                 <Mail className="w-6 h-6" />
