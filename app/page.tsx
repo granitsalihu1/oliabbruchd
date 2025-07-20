@@ -504,52 +504,50 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-900 text-white">
+      <section id="contact" className="py-20 text-white" style={{ backgroundColor: '#84a12f' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Kontakt
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-white opacity-90 max-w-3xl mx-auto mb-8">
               Mit langjähriger Erfahrung, Kompetenz und methodischem Know-how gehen wir Ihr Projekt an. Kontaktieren Sie uns und vereinbaren Sie einen Termin. Wir freuen uns, mit Ihnen über Ihr Projekt zu sprechen.
             </p>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
-                <Phone className="w-8 h-8" />
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <Phone className="w-8 h-8" style={{ color: '#84a12f' }} />
               </div>
               <h3 className="text-2xl font-bold mb-4">Telefon</h3>
               <a 
                 href="tel:+4915901425683" 
-                className="text-xl transition-colors duration-300 hover:opacity-80"
-                style={{ color: 'var(--e-global-color-accent)' }}
+                className="text-xl text-white transition-colors duration-300 hover:opacity-80"
               >
                 +49 1590 1425683
               </a>
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
-                <Mail className="w-8 h-8" />
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <Mail className="w-8 h-8" style={{ color: '#84a12f' }} />
               </div>
               <h3 className="text-2xl font-bold mb-4">E-Mail</h3>
               <a 
                 href="mailto:oliabbruch@gmail.com" 
-                className="text-xl transition-colors duration-300 hover:opacity-80"
-                style={{ color: 'var(--e-global-color-accent)' }}
+                className="text-xl text-white transition-colors duration-300 hover:opacity-80"
               >
                 oliabbruch@gmail.com
               </a>
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
-                <MapPin className="w-8 h-8" />
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <MapPin className="w-8 h-8" style={{ color: '#84a12f' }} />
               </div>
               <h3 className="text-2xl font-bold mb-4">Adresse</h3>
-              <div className="text-xl text-gray-300">
+              <div className="text-xl text-white">
                 <p className="font-semibold text-white mb-2">Ariol Demiri</p>
                 <p>Marktplatz 10</p>
                 <p>73650 Winterbach</p>
@@ -558,9 +556,9 @@ export default function Home() {
           </div>
           
           <div className="text-center">
-            <div className="rounded-lg p-8 max-w-2xl mx-auto text-white" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
+            <div className="rounded-lg p-8 max-w-2xl mx-auto bg-white text-black">
               <h3 className="text-2xl font-bold mb-4">Servicegebiet</h3>
-              <p className="text-white text-lg opacity-90">
+              <p className="text-black text-lg">
                 Wir sind in ganz Baden-Württemberg und den angrenzenden Regionen für Sie tätig. 
                 Gerne erstellen wir Ihnen ein individuelles Angebot für Ihr Projekt.
               </p>
@@ -570,7 +568,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-12">
+      <footer className="py-12" style={{ backgroundColor: '#84a12f' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center mb-4">
@@ -582,25 +580,23 @@ export default function Home() {
                 className="h-12 object-contain"
               />
             </div>
-            <p className="text-lg mb-6" style={{ color: 'var(--e-global-color-accent)' }}>Profis Am Werk</p>
-            <div className="flex justify-center space-x-8 text-gray-400">
+            <p className="text-lg mb-6 text-white font-bold">Profis Am Werk</p>
+            <div className="flex justify-center space-x-8">
               <a 
                 href="tel:+4915901425683" 
-                className="transition-colors duration-300 hover:opacity-80"
-                style={{ color: 'var(--e-global-color-accent)' }}
+                className="bg-white p-3 rounded-full transition-colors duration-300 hover:opacity-80"
               >
-                <Phone className="w-6 h-6" />
+                <Phone className="w-6 h-6" style={{ color: '#84a12f' }} />
               </a>
               <a 
                 href="mailto:oliabbruch@gmail.com" 
-                className="transition-colors duration-300 hover:opacity-80"
-                style={{ color: 'var(--e-global-color-accent)' }}
+                className="bg-white p-3 rounded-full transition-colors duration-300 hover:opacity-80"
               >
-                <Mail className="w-6 h-6" />
+                <Mail className="w-6 h-6" style={{ color: '#84a12f' }} />
               </a>
             </div>
-            <div className="mt-8 pt-8 border-t border-gray-800">
-              <p className="text-gray-500">
+            <div className="mt-8 pt-8 border-t border-white border-opacity-30">
+              <p className="text-white opacity-80">
                 © 2024 Oli Abbruch. Alle Rechte vorbehalten.
               </p>
             </div>
