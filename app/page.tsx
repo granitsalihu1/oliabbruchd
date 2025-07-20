@@ -384,7 +384,6 @@ export default function Home() {
                 alt="Construction work"
                 className="rounded-lg shadow-2xl w-full h-96 object-cover"
               />
-              <div className="absolute -bottom-6 -right-6 bg-orange-600 text-white p-6 rounded-lg shadow-xl">
               <div className="absolute -bottom-6 -right-6 text-white p-6 rounded-lg shadow-xl" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
                 <p className="text-2xl font-bold">15+</p>
                 <p className="text-sm">Jahre Erfahrung</p>
@@ -583,7 +582,6 @@ export default function Home() {
                 className="h-12 object-contain"
               />
             </div>
-            <p className="text-orange-400 text-lg mb-6">Profis Am Werk</p>
             <p className="text-lg mb-6" style={{ color: 'var(--e-global-color-accent)' }}>Profis Am Werk</p>
             <div className="flex justify-center space-x-8 text-gray-400">
               <a 
