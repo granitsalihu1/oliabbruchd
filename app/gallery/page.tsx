@@ -192,69 +192,66 @@ export default function Gallery() {
 
         {/* Mobile Navigation Overlay */}
         {isMenuOpen && (
-          <div className="fixed inset-0 z-50 md:hidden">
-            {/* Full screen overlay */}
-            <div className="absolute inset-0 bg-white">
-              {/* Close button */}
-              <div className="absolute top-4 right-4 z-10">
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                  aria-label="Menü schließen"
-                >
-                  <X className="w-6 h-6 text-gray-700" />
-                </button>
-              </div>
-              
-              {/* Menu content */}
-              <div className="flex flex-col justify-center items-start h-full px-8 py-16">
-                <nav className="w-full">
-                  <div className="space-y-8">
-                    <Link
-                      href="/"
-                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Home
-                    </Link>
-                    <Link
-                      href="/#about"
-                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Über uns
-                    </Link>
-                    <Link
-                      href="/#services"
-                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Vision
-                    </Link>
-                    <Link
-                      href="/#services"
-                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Leistungen
-                    </Link>
-                    <Link
-                      href="/gallery"
-                      className="block text-4xl sm:text-5xl font-light text-green-600 transition-colors duration-300"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Jobs
-                    </Link>
-                    <Link
-                      href="/#contact"
-                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Kontakt
-                    </Link>
-                  </div>
-                </nav>
-              </div>
+          <div className="fixed inset-0 z-[9999] bg-white md:hidden">
+            {/* Close button */}
+            <div className="absolute top-4 right-4 z-10">
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                aria-label="Menü schließen"
+              >
+                <X className="w-6 h-6 text-gray-700" />
+              </button>
+            </div>
+            
+            {/* Menu content */}
+            <div className="flex flex-col justify-center items-start h-full px-8 py-16">
+              <nav className="w-full">
+                <div className="space-y-8">
+                  <Link
+                    href="/"
+                    className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    href="/#about"
+                    className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Über uns
+                  </Link>
+                  <Link
+                    href="/#services"
+                    className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Vision
+                  </Link>
+                  <Link
+                    href="/#services"
+                    className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Leistungen
+                  </Link>
+                  <Link
+                    href="/gallery"
+                    className="block text-4xl sm:text-5xl font-light text-green-600 transition-colors duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Jobs
+                  </Link>
+                  <Link
+                    href="/#contact"
+                    className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Kontakt
+                  </Link>
+                </div>
+              </nav>
             </div>
           </div>
         )}
