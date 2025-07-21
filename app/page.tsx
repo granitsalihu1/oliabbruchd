@@ -1,274 +1,305 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Building, Wrench, Hammer, ShieldCheck, Drill, Menu, X, Search } from 'lucide-react';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Building,
+  Wrench,
+  Hammer,
+  ShieldCheck,
+  Drill,
+  ArrowRight,
+  Facebook,
+  Instagram,
+  Youtube,
+  Users,
+  X,
+  Menu,
+} from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
+  // State for mobile menu and scroll behaviour.
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Add an event listener to update state when the user scrolls.  This is
+  // used to adjust the header's background opacity on scroll.
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when screen size changes
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Close mobile menu when screen size changes
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Services data used in the services section.  Each service has an
+  // icon, title and description.  Icons are imported from lucide-react
+  // above and rendered with a consistent size.
   const services = [
     {
-      icon: <Building className="w-12 h-12" />,
+      icon: <Building className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />,
       title: "Abbruch",
-      description: "Professioneller Abbruch von Gebäuden und Bauwerken aller Art mit modernster Technik und höchsten Sicherheitsstandards."
+      description:
+        "Professioneller Abbruch von Gebäuden und Bauwerken aller Art mit modernster Technik und höchsten Sicherheitsstandards.",
     },
     {
-      icon: <Wrench className="w-12 h-12" />,
+      icon: <Wrench className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />,
       title: "Entkernung",
-      description: "Fachgerechte Entkernung von Immobilien zur Vorbereitung von Sanierungen und Umbauten."
+      description:
+        "Fachgerechte Entkernung von Immobilien zur Vorbereitung von Sanierungen und Umbauten.",
     },
     {
-      icon: <Hammer className="w-12 h-12" />,
+      icon: <Hammer className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />,
       title: "Demontage",
-      description: "Sorgfältige Demontage von Bauteilen und technischen Anlagen mit Fokus auf Materialrecycling."
+      description:
+        "Sorgfältige Demontage von Bauteilen und technischen Anlagen mit Fokus auf Materialrecycling.",
     },
     {
-      icon: <Building className="w-12 h-12" />,
+      icon: <Building className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />,
       title: "Rückbau",
-      description: "Kontrollierten Rückbau komplexer Baustrukturen unter Berücksichtigung aller Umweltauflagen."
+      description:
+        "Kontrollierter Rückbau komplexer Baustrukturen unter Berücksichtigung aller Umweltauflagen.",
     },
     {
-      icon: <ShieldCheck className="w-12 h-12" />,
+      icon: <ShieldCheck className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />,
       title: "Schadstoffsanierung",
-      description: "Sichere Entfernung und fachgerechte Entsorgung von Schadstoffen wie Asbest, PAK und anderen Gefahrstoffen."
+      description:
+        "Sichere Entfernung und fachgerechte Entsorgung von Schadstoffen wie Asbest, PAK und anderen Gefahrstoffen.",
     },
     {
-      icon: <Drill className="w-12 h-12" />,
+      icon: <Drill className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />,
       title: "Betonbohren",
-      description: "Präzise Bohrarbeiten in Beton und Mauerwerk für verschiedene bauliche Anforderungen."
-    }
+      description:
+        "Präzise Bohrarbeiten in Beton und Mauerwerk für verschiedene bauliche Anforderungen.",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
-        <div className="w-full px-3 sm:px-4 lg:px-6">
-          
-          {/* Mobile Layout: Centered Logo + Search + Menu */}
-          <div className="md:hidden">
-            {/* Top Row: HUGE Logo Centered */}
-            <div className={`flex justify-center transition-all duration-300 ${
-              scrolled ? 'py-2 sm:py-3' : 'py-4 sm:py-6'
-            }`}>
-              <Image 
-                src="/logo1.jpeg" 
-                alt="Oli Abbruch Logo" 
-                width={scrolled ? 300 : 400} 
-                height={scrolled ? 90 : 120} 
-                className={`transition-all duration-300 object-contain ${
-                  scrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-24'
+      {/* Header / Navigation */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-lg"
+            : "bg-white/80 backdrop-blur-sm"
+        }`}
+      >
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          {/* Mobile layout */}
+          <div className="flex md:hidden items-center justify-between py-3 sm:py-4">
+            <div>
+              <Image
+                src="/logo1.jpeg"
+                alt="Oli Abbruch Logo"
+                width={scrolled ? 180 : 200}
+                height={scrolled ? 54 : 60}
+                className={`object-contain transition-all duration-300 ${
+                  scrolled ? 'h-10 sm:h-12' : 'h-12 sm:h-14'
                 }`}
                 priority
               />
             </div>
-            
-            {/* Bottom Row: Search Bar and Menu Dots */}
-            <div className={`flex items-center justify-center gap-3 pb-3 sm:pb-4 transition-all duration-300 ${
-              scrolled ? 'pb-2 sm:pb-3' : ''
-            }`}>
-              {/* Search Bar */}
-              <div className="flex-1 max-w-xs sm:max-w-sm">
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Search className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder=""
-                    className="block w-full pl-10 sm:pl-12 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm sm:text-base shadow-sm"
-                  />
-                </div>
-              </div>
-              
-              {/* Menu Dots */}
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300 flex-shrink-0"
-                aria-label="Toggle menu"
-              >
-                <div className="flex flex-col space-y-1">
-                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
-                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
-                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
-                </div>
-              </button>
-            </div>
+            {/* Hamburger toggle */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-md text-gray-700 hover:text-[#84a12f] hover:bg-gray-100 transition-colors duration-200"
+              aria-label="Menü öffnen"
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           </div>
-
-          {/* Desktop Layout: Logo Left + Navigation Right */}
+          {/* Desktop layout */}
           <div className="hidden md:flex items-center justify-between py-4 lg:py-6">
-            {/* Logo on the left */}
-            <div className="flex-shrink-0">
-              <Image 
-                src="/logo1.jpeg" 
-                alt="Oli Abbruch Logo" 
-                width={scrolled ? 180 : 220} 
-                height={scrolled ? 60 : 80} 
-                className={`transition-all duration-300 object-contain ${
+            <div>
+              <Image
+                src="/logo1.jpeg"
+                alt="Oli Abbruch Logo"
+                width={scrolled ? 200 : 240}
+                height={scrolled ? 60 : 72}
+                className={`object-contain transition-all duration-300 ${
                   scrolled ? 'h-12 lg:h-16' : 'h-16 lg:h-20'
                 }`}
                 priority
               />
             </div>
-            
             {/* Navigation Menu on the right */}
-            <div className="flex items-center space-x-8 lg:space-x-12">
-              <a 
-                href="#home" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+            <div className="flex items-center space-x-4 lg:space-x-8">
+              <a
+                href="#home"
+                className="text-gray-900 hover:text-[#84a12f] font-medium text-sm lg:text-lg transition-colors duration-300"
               >
                 Abbruch
               </a>
-              <a 
-                href="#services" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              <a
+                href="#services"
+                className="text-gray-900 hover:text-[#84a12f] font-medium text-sm lg:text-lg transition-colors duration-300"
               >
                 Erdbau
               </a>
-              <a 
-                href="#about" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              <a
+                href="#about"
+                className="text-gray-900 hover:text-[#84a12f] font-medium text-sm lg:text-lg transition-colors duration-300"
               >
                 Tiefbau
               </a>
-              <a 
-                href="#contact" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              <a
+                href="#contact"
+                className="text-gray-900 hover:text-[#84a12f] font-medium text-sm lg:text-lg transition-colors duration-300"
               >
                 Weitere Dienstleistungen
               </a>
-              <a 
-                href="#gallery" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              <a
+                href="#gallery"
+                className="text-gray-900 hover:text-[#84a12f] font-medium text-sm lg:text-lg transition-colors duration-300"
               >
                 Galerie
               </a>
-              <a 
-                href="#about" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
-              >
-                Über uns
-              </a>
-              <a 
-                href="#contact" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
+              <a
+                href="#contact"
+                className="ml-2 inline-flex items-center px-3 lg:px-4 py-2 border border-[#0a3d1a] rounded-full text-[#0a3d1a] hover:bg-[#0a3d1a] hover:text-white transition-colors duration-200 text-sm lg:text-base"
               >
                 Kontakt
+                <ArrowRight className="ml-1 lg:ml-2 w-3 h-3 lg:w-4 lg:h-4" />
               </a>
             </div>
           </div>
         </div>
-
         {/* Mobile Navigation Overlay */}
-        <div className={`fixed inset-0 z-40 transition-all duration-300 ease-in-out md:hidden ${
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}>
+        <div 
+          className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          }`}
+        >
           {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-black bg-opacity-50"
             onClick={() => setIsMenuOpen(false)}
           ></div>
           
-          {/* Menu Panel */}
+          {/* Menu content */}
           <div className={`absolute top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}>
             <div className="flex flex-col h-full">
-              {/* Header */}
+              {/* Top bar with logo and close button */}
               <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-900">Menü</h2>
+                <Image
+                  src="/logo1.jpeg"
+                  alt="Oli Abbruch Logo"
+                  width={140}
+                  height={45}
+                  className="object-contain h-8 sm:h-10 w-auto"
+                  priority
+                />
                 <button
                   onClick={() => setIsMenuOpen(false)}
-                  className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+                  className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                  aria-label="Menü schließen"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </div>
               
-              {/* Navigation Links */}
+              {/* Navigation links */}
               <nav className="flex-1 px-4 sm:px-6 py-4 sm:py-6">
                 <div className="space-y-2 sm:space-y-4">
-                  <a 
-                    href="#home" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                  <a
+                    href="#home"
+                    className="block py-3 px-4 text-lg sm:text-xl font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Abbruch
                   </a>
-                  <a 
-                    href="#services" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                  <a
+                    href="#services"
+                    className="block py-3 px-4 text-lg sm:text-xl font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Erdbau
                   </a>
-                  <a 
-                    href="#about" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                  <a
+                    href="#about"
+                    className="block py-3 px-4 text-lg sm:text-xl font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Tiefbau
                   </a>
-                  <a 
-                    href="#contact" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                  <a
+                    href="#contact"
+                    className="block py-3 px-4 text-lg sm:text-xl font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Weitere Dienstleistungen
                   </a>
-                  <a 
-                    href="#gallery" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                  <a
+                    href="#gallery"
+                    className="block py-3 px-4 text-lg sm:text-xl font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Galerie
                   </a>
-                  <a 
-                    href="#about" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                  <a
+                    href="#about"
+                    className="block py-3 px-4 text-lg sm:text-xl font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Über uns
                   </a>
-                  <a 
-                    href="#contact" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                  <a
+                    href="#contact"
+                    className="block py-3 px-4 text-lg sm:text-xl font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Kontakt
                   </a>
                 </div>
               </nav>
-              
-              {/* Contact Info */}
-              <div className="px-4 sm:px-6 py-4 sm:py-6 border-t border-gray-200 bg-gray-50">
+
+              {/* Contact info in mobile menu */}
+              <div className="p-4 sm:p-6 border-t border-gray-200 bg-gray-50">
                 <div className="space-y-3">
                   <a 
                     href="tel:+4915901425683" 
-                    className="flex items-center text-sm text-gray-600"
-                    style={{ color: 'var(--e-global-color-accent)' }}
+                    className="flex items-center text-gray-700 hover:text-[#84a12f] transition-colors"
                   >
-                    <Phone className="w-4 h-4 mr-3" />
-                    +49 1590 1425683
+                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-3" />
+                    <span className="text-sm sm:text-base font-medium">+49 1590 1425683</span>
                   </a>
                   <a 
                     href="mailto:oliabbruch@gmail.com" 
-                    className="flex items-center text-sm text-gray-600"
-                    style={{ color: 'var(--e-global-color-accent)' }}
+                    className="flex items-center text-gray-700 hover:text-[#84a12f] transition-colors"
                   >
-                    <Mail className="w-4 h-4 mr-3" />
-                    oliabbruch@gmail.com
+                    <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-3" />
+                    <span className="text-sm sm:text-base font-medium">oliabbruch@gmail.com</span>
                   </a>
                 </div>
               </div>
@@ -277,70 +308,81 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Adjusted spacing for different layouts */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-32 sm:pt-40 md:pt-24 lg:pt-28">
-        <div 
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-center pt-20 sm:pt-24 md:pt-28 lg:pt-32"
+      >
+        {/* Background image with a tinted overlay */}
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')"
+            backgroundImage:
+              "url('https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')",
           }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+          <div className="absolute inset-0 bg-[#0a3d1a] opacity-70"></div>
         </div>
-        
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4 py-8">
-          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
-            OLI ABBRUCH
+        <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          {/* Small tagline */}
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-3 sm:mb-4 tracking-wider uppercase font-medium text-white/80">
+            Oli Abbruch &amp; Sanierung
+          </p>
+          {/* Multi‑line headline where the last line uses the accent colour */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold leading-tight mb-4 sm:mb-6">
+            <span className="block text-white">Abbruch mit Präzision.</span>
+            <span className="block text-white">Entkernung mit Charakter.</span>
+            <span className="block" style={{ color: "#84a12f" }}>
+              Sanierung mit Konzept.
+            </span>
           </h1>
-          <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl mb-6 sm:mb-8 text-orange-400 font-semibold">
-            Profis Am Werk
+          {/* Description below the headline */}
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed">
+            Ihr zuverlässiger Partner für professionelle Abbruch-, Entkernungs- und Sanierungsarbeiten in Baden‑Württemberg.
           </p>
-          <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2">
-            Ihr zuverlässiger Partner für professionelle Abbruch-, Entkerrungs- und Sanierungsarbeiten in Baden-Württemberg
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-            <a 
-              href="#contact" 
-              className="text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-all duration-300 transform hover:scale-105"
-              style={{ backgroundColor: 'var(--e-global-color-accent)' }}
+          {/* Call to action buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+            <a
+              href="#services"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-[#0a3d1a] text-white font-semibold rounded-full shadow hover:bg-[#084c1d] transition-colors duration-300 text-sm sm:text-base lg:text-lg w-full sm:w-auto"
             >
-              Kostenlose Beratung
+              Mehr erfahren
             </a>
-            <a 
-              href="#services" 
-              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-all duration-300"
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-[#0a3d1a] transition-colors duration-300 text-sm sm:text-base lg:text-lg w-full sm:w-auto"
             >
-              Unsere Leistungen
+              Kontakt
+              <ArrowRight className="ml-2 w-4 h-4" />
             </a>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
+      <section id="services" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Unsere Leistungen
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Wir bieten umfassende Dienstleistungen im Bereich Abbruch, Sanierung und Schadstoffbehandlung mit modernster Technik und jahrelanger Erfahrung.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
-              <div 
+              <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-white rounded-lg shadow-lg p-6 sm:p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
               >
-                <div className="text-orange-600 mb-6">
+                <div className="mb-4 sm:mb-6" style={{ color: "#84a12f" }}>
                   {service.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                   {service.description}
                 </p>
               </div>
@@ -350,43 +392,76 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            {/* Left column: text and feature list */}
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Über Oli Abbruch
               </h2>
-              <div className="space-y-6 text-lg text-gray-600">
-                <p>
-                  Mit jahrelanger Erfahrung im Bereich Abbruch und Sanierung stehen wir für Qualität, Zuverlässigkeit und professionelle Ausführung. Unser erfahrenes Team führt Projekte jeder Größenordnung durch - von kleinen Entkernungsarbeiten bis hin zu kompletten Gebäudeabbrüchen.
-                </p>
-                <p>
-                  Wir legen besonderen Wert auf Umweltschutz und die fachgerechte Entsorgung von Baumaterialien. Unsere Expertise in der Schadstoffsanierung gewährleistet sichere und gesetzeskonforme Arbeitsabläufe.
-                </p>
-                <p>
-                  Vertrauen Sie auf unsere Kompetenz und lassen Sie sich von unserer Arbeitsqualität überzeugen. Wir freuen uns darauf, auch Ihr Projekt erfolgreich umzusetzen.
-                </p>
+              <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+                Mit jahrelanger Erfahrung im Bereich Abbruch und Sanierung stehen wir für Qualität,
+                Zuverlässigkeit und professionelle Ausführung. Unser erfahrenes Team führt Projekte jeder
+                Größenordnung durch – von kleinen Entkernungsarbeiten bis hin zu kompletten Gebäudeabbrüchen.
+              </p>
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-start">
+                  <span className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-[#84a12f]/10">
+                    <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: "#84a12f" }} />
+                  </span>
+                  <div className="ml-3 sm:ml-4">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1">
+                      Qualität, die bleibt
+                    </h3>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                      Unsere Projekte entstehen mit Liebe zum Detail, hochwertigen Materialien und echtem
+                      Handwerk – für Ergebnisse, die über Jahre überzeugen.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <span className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-[#84a12f]/10">
+                    <Users className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: "#84a12f" }} />
+                  </span>
+                  <div className="ml-3 sm:ml-4">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1">
+                      Service auf Augenhöhe
+                    </h3>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                      Persönliche Beratung, klare Kommunikation und zuverlässige Umsetzung – bei uns steht der
+                      Mensch im Mittelpunkt.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="mt-8">
-                <a 
-                  href="#contact" 
-                  className="text-white font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 inline-block hover:opacity-90"
-                  style={{ backgroundColor: 'var(--e-global-color-accent)' }}
+              <div className="mt-6 sm:mt-8">
+                <a
+                  href="#contact"
+                  className="inline-block px-6 py-3 text-white font-semibold rounded-full transition-colors duration-300 hover:bg-[#084c1d] text-sm sm:text-base"
+                  style={{ backgroundColor: "#0a3d1a" }}
                 >
                   Jetzt Kontakt aufnehmen
                 </a>
               </div>
             </div>
-            <div className="relative">
-              <img 
-                src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Construction work"
-                className="rounded-lg shadow-2xl w-full h-96 object-cover"
-              />
-              <div className="absolute -bottom-6 -right-6 text-white p-6 rounded-lg shadow-xl" style={{ backgroundColor: 'var(--e-global-color-accent)' }}>
-                <p className="text-2xl font-bold">15+</p>
-                <p className="text-sm">Jahre Erfahrung</p>
+            {/* Right column: image collage */}
+            <div className="relative mt-8 lg:mt-0">
+              <div className="relative w-full h-80 sm:h-96">
+                <img
+                  src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Baustelle"
+                  className="rounded-xl w-full h-full object-cover shadow-2xl"
+                />
+                <img
+                  src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  alt="Abbruchdetail"
+                  className="absolute top-1/2 right-0 w-3/4 sm:w-2/3 h-32 sm:h-40 md:h-56 object-cover rounded-xl shadow-xl transform translate-x-1/4 -translate-y-1/2 border-4 border-white"
+                />
+              </div>
+              <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 transform -translate-x-1/2 bg-[#0a3d1a] text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg shadow-xl">
+                <p className="text-xl sm:text-2xl font-bold">15+</p>
+                <p className="text-xs sm:text-sm">Jahre Erfahrung</p>
               </div>
             </div>
           </div>
@@ -394,108 +469,46 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-20 bg-white">
+      <section id="gallery" className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Unsere Projekte
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Entdecken Sie eine Auswahl unserer erfolgreich abgeschlossenen Abbruch- und Sanierungsprojekte.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-              <img 
-                src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Abbruchprojekt 1"
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-xl font-bold mb-2">Gebäudeabbruch</h3>
-                  <p className="text-sm">Kompletter Rückbau eines Wohngebäudes</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {/* Gallery items with responsive hover effects */}
+            {[
+              { title: "Gebäudeabbruch", desc: "Kompletter Rückbau eines Wohngebäudes", img: "1216589" },
+              { title: "Entkernung", desc: "Fachgerechte Entkernung für Sanierung", img: "2219024" },
+              { title: "Schadstoffsanierung", desc: "Sichere Asbestentfernung", img: "1216589" },
+              { title: "Betonbohren", desc: "Präzise Bohrarbeiten in Beton", img: "2219024" },
+              { title: "Demontage", desc: "Sorgfältige Demontage von Anlagen", img: "1216589" },
+              { title: "Rückbau", desc: "Kontrollierter Rückbau komplexer Strukturen", img: "2219024" }
+            ].map((item, index) => (
+              <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                <img
+                  src={`https://images.pexels.com/photos/${item.img}/pexels-photo-${item.img}.jpeg?auto=compress&cs=tinysrgb&w=600`}
+                  alt={item.title}
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="text-white text-center p-4">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-sm sm:text-base">{item.desc}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-              <img 
-                src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Abbruchprojekt 2"
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-xl font-bold mb-2">Entkernung</h3>
-                  <p className="text-sm">Fachgerechte Entkernung für Sanierung</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-              <img 
-                src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Abbruchprojekt 3"
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-xl font-bold mb-2">Schadstoffsanierung</h3>
-                  <p className="text-sm">Sichere Asbestentfernung</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-              <img 
-                src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Abbruchprojekt 4"
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-xl font-bold mb-2">Betonbohren</h3>
-                  <p className="text-sm">Präzise Bohrarbeiten in Beton</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-              <img 
-                src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Abbruchprojekt 5"
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-xl font-bold mb-2">Demontage</h3>
-                  <p className="text-sm">Sorgfältige Demontage von Anlagen</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-              <img 
-                src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Abbruchprojekt 6"
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-xl font-bold mb-2">Rückbau</h3>
-                  <p className="text-sm">Kontrollierter Rückbau komplexer Strukturen</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
-          
-          <div className="text-center mt-12">
-            <a 
-              href="#contact" 
-              className="inline-block px-8 py-3 text-white font-bold rounded-lg text-lg transition-all duration-300 transform hover:scale-105 hover:opacity-90"
-              style={{ backgroundColor: 'var(--e-global-color-accent)' }}
+          <div className="text-center mt-8 sm:mt-12">
+            <a
+              href="#contact"
+              className="inline-block px-6 sm:px-8 py-3 sm:py-4 text-white font-bold rounded-lg text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#084c1d]"
+              style={{ backgroundColor: "#0a3d1a" }}
             >
               Projekt anfragen
             </a>
@@ -504,63 +517,115 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 text-white" style={{ backgroundColor: '#84a12f' }}>
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 text-white" style={{ backgroundColor: "#84a12f" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Kontakt
-            </h2>
-            <p className="text-xl text-white opacity-90 max-w-3xl mx-auto mb-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Kontakt</h2>
+            <p className="text-lg sm:text-xl text-white opacity-90 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed">
               Mit langjähriger Erfahrung, Kompetenz und methodischem Know-how gehen wir Ihr Projekt an. Kontaktieren Sie uns und vereinbaren Sie einen Termin. Wir freuen uns, mit Ihnen über Ihr Projekt zu sprechen.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <Phone className="w-8 h-8" style={{ color: '#84a12f' }} />
+          {/* Two‑column layout: contact information on the left, contact form on the right.  On smaller screens this stacks vertically. */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+            {/* Contact Details */}
+            <div className="space-y-6 sm:space-y-8">
+              <div className="flex items-start">
+                <span className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: "#84a12f" }} />
+                </span>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">Telefon</h3>
+                  <a href="tel:+4915901425683" className="text-base sm:text-lg text-white hover:underline">
+                    +49 1590 1425683
+                  </a>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Telefon</h3>
-              <a 
-                href="tel:+4915901425683" 
-                className="text-xl text-white transition-colors duration-300 hover:opacity-80"
-              >
-                +49 1590 1425683
-              </a>
+              <div className="flex items-start">
+                <span className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: "#84a12f" }} />
+                </span>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">E‑Mail</h3>
+                  <a href="mailto:oliabbruch@gmail.com" className="text-base sm:text-lg text-white hover:underline break-all">
+                    oliabbruch@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <span className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: "#84a12f" }} />
+                </span>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">Adresse</h3>
+                  <p className="text-base sm:text-lg text-white">Ariol Demiri</p>
+                  <p className="text-base sm:text-lg text-white">Marktplatz 10</p>
+                  <p className="text-base sm:text-lg text-white">73650 Winterbach</p>
+                </div>
+              </div>
             </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <Mail className="w-8 h-8" style={{ color: '#84a12f' }} />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">E-Mail</h3>
-              <a 
-                href="mailto:oliabbruch@gmail.com" 
-                className="text-xl text-white transition-colors duration-300 hover:opacity-80"
-              >
-                oliabbruch@gmail.com
-              </a>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <MapPin className="w-8 h-8" style={{ color: '#84a12f' }} />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Adresse</h3>
-              <div className="text-xl text-white">
-                <p className="font-semibold text-white mb-2">Ariol Demiri</p>
-                <p>Marktplatz 10</p>
-                <p>73650 Winterbach</p>
+            {/* Contact Form */}
+            <div>
+              <div className="bg-[#0a3d1a] text-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Kontaktformular</h3>
+                <form className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      name="firstName"
+                      placeholder="Vorname"
+                      className="w-full border border-[#84a12f] rounded-md p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#84a12f] text-sm sm:text-base"
+                    />
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder="Nachname"
+                      className="w-full border border-[#84a12f] rounded-md p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#84a12f] text-sm sm:text-base"
+                    />
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="E‑Mail"
+                    className="w-full border border-[#84a12f] rounded-md p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#84a12f] text-sm sm:text-base"
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Telefonnummer"
+                    className="w-full border border-[#84a12f] rounded-md p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#84a12f] text-sm sm:text-base"
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Beschreibung"
+                    rows={4}
+                    className="w-full border border-[#84a12f] rounded-md p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#84a12f] text-sm sm:text-base"
+                  ></textarea>
+                  <button
+                    type="submit"
+                    className="w-full bg-[#0a3d1a] text-white font-semibold py-3 px-6 rounded-md hover:bg-[#084c1d] transition-colors duration-300 text-sm sm:text-base"
+                  >
+                    Senden
+                  </button>
+                </form>
               </div>
             </div>
           </div>
-          
-          <div className="text-center">
-            <div className="rounded-lg p-8 max-w-2xl mx-auto bg-white text-black">
-              <h3 className="text-2xl font-bold mb-4">Servicegebiet</h3>
-              <p className="text-black text-lg">
-                Wir sind in ganz Baden-Württemberg und den angrenzenden Regionen für Sie tätig. 
-                Gerne erstellen wir Ihnen ein individuelles Angebot für Ihr Projekt.
+        </div>
+      </section>
+
+      {/* Service area section between contact and footer */}
+      <section id="servicegebiet" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center md:flex-row md:items-start gap-6 sm:gap-8 text-center md:text-left">
+            <span className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#84a12f]/10 mb-4 md:mb-0 flex-shrink-0">
+              <MapPin className="w-6 h-6 sm:w-8 sm:h-8" style={{ color: "#84a12f" }} />
+            </span>
+            <div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+                Servicegebiet
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl">
+                Wir sind in ganz Baden‑Württemberg und den angrenzenden Regionen für Sie tätig. Gerne erstellen wir Ihnen ein individuelles Angebot für Ihr Projekt.
               </p>
             </div>
           </div>
@@ -568,37 +633,138 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12" style={{ backgroundColor: '#84a12f' }}>
+      <footer className="bg-[#0a3d1a] text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center mb-4">
-              <Image 
-                src="/logo1.jpeg" 
-                alt="Oli Abbruch Logo" 
-                width={150} 
-                height={50} 
-                className="h-12 object-contain"
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            {/* Branding and tagline */}
+            <div className="sm:col-span-2 md:col-span-1">
+              <Image
+                src="/logo1.jpeg"
+                alt="Oli Abbruch Logo"
+                width={160}
+                height={48}
+                className="h-10 sm:h-12 object-contain mb-3 sm:mb-4"
               />
-            </div>
-            <p className="text-lg mb-6 text-white font-bold">Profis Am Werk</p>
-            <div className="flex justify-center space-x-8">
-              <a 
-                href="tel:+4915901425683" 
-                className="bg-white p-3 rounded-full transition-colors duration-300 hover:opacity-80"
-              >
-                <Phone className="w-6 h-6" style={{ color: '#84a12f' }} />
-              </a>
-              <a 
-                href="mailto:oliabbruch@gmail.com" 
-                className="bg-white p-3 rounded-full transition-colors duration-300 hover:opacity-80"
-              >
-                <Mail className="w-6 h-6" style={{ color: '#84a12f' }} />
-              </a>
-            </div>
-            <div className="mt-8 pt-8 border-t border-white border-opacity-30">
-              <p className="text-white opacity-80">
-                © 2024 Oli Abbruch. Alle Rechte vorbehalten.
+              <p className="text-sm leading-relaxed max-w-xs">
+                Ihr Partner für professionelle Abbruch‑, Entkernungs‑ und Sanierungsarbeiten mit Herz, Hand und Verstand.
               </p>
+            </div>
+            {/* Informationen */}
+            <div>
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Informationen</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#home" className="hover:text-[#84a12f] transition-colors">
+                    Abbruch
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                    Erdbau
+                  </a>
+                </li>
+                <li>
+                  <a href="#about" className="hover:text-[#84a12f] transition-colors">
+                    Tiefbau
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="hover:text-[#84a12f] transition-colors">
+                    Weitere Dienstleistungen
+                  </a>
+                </li>
+                <li>
+                  <a href="#gallery" className="hover:text-[#84a12f] transition-colors">
+                    Galerie
+                  </a>
+                </li>
+                <li>
+                  <a href="#about" className="hover:text-[#84a12f] transition-colors">
+                    Über uns
+                  </a>
+                </li>
+              </ul>
+            </div>
+            {/* Kontakt details */}
+            <div>
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Kontakt</h3>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center">
+                  <Phone className="w-4 h-4 mr-2 flex-shrink-0" style={{ color: "#84a12f" }} />
+                  <a href="tel:+4915901425683" className="hover:text-[#84a12f] transition-colors">
+                    +49 1590 1425683
+                  </a>
+                </li>
+                <li className="flex items-center">
+                  <Mail className="w-4 h-4 mr-2 flex-shrink-0" style={{ color: "#84a12f" }} />
+                  <a href="mailto:oliabbruch@gmail.com" className="hover:text-[#84a12f] transition-colors break-all">
+                    oliabbruch@gmail.com
+                  </a>
+                </li>
+                <li className="flex items-start">
+                  <MapPin className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" style={{ color: "#84a12f" }} />
+                  <span>
+                    Ariol Demiri
+                    <br />
+                    Marktplatz 10
+                    <br />
+                    73650 Winterbach
+                  </span>
+                </li>
+              </ul>
+            </div>
+            {/* Leistungen */}
+            <div>
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Leistungen</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                    Abbruch
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                    Entkernung
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                    Demontage
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                    Rückbau
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                    Schadstoffsanierung
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                    Betonbohren
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          {/* Bottom row with social icons and copyright */}
+          <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-center sm:text-left">
+              © 2024 Oli Abbruch. Alle Rechte vorbehalten.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#" className="hover:text-[#84a12f] transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-[#84a12f] transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-[#84a12f] transition-colors" aria-label="YouTube">
+                <Youtube className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>
