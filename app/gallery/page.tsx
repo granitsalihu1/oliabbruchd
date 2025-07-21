@@ -191,70 +191,99 @@ export default function Gallery() {
         </div>
 
         {/* Mobile Navigation Overlay */}
-        <div className={`fixed inset-0 z-40 transition-all duration-300 ease-in-out md:hidden ${
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}>
-          <div 
-            className="absolute inset-0 bg-black bg-opacity-50"
-            onClick={() => setIsMenuOpen(false)}
-          ></div>
-          
-          <div className={`absolute top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}>
-            <div className="flex flex-col h-full">
-              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-900">Menü</h2>
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-              
-              <nav className="flex-1 px-4 sm:px-6 py-4 sm:py-6">
-                <div className="space-y-2 sm:space-y-4">
-                  <Link 
-                    href="/" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Home
+        {isMenuOpen && (
+          <div className="fixed inset-0 z-40 md:hidden">
+            <div 
+              className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300"
+              onClick={() => setIsMenuOpen(false)}
+            ></div>
+            
+            <div className="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-xl transform transition-transform duration-300 ease-in-out">
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                  <Link href="/">
+                    <Image 
+                      src="/logo1.jpeg" 
+                      alt="Oli Abbruch Logo" 
+                      width={120} 
+                      height={40} 
+                      className="h-8 object-contain"
+                      priority
+                    />
                   </Link>
-                  <Link 
-                    href="/#about" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200"
+                  <button
                     onClick={() => setIsMenuOpen(false)}
+                    className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100"
                   >
-                    Über uns
-                  </Link>
-                  <Link 
-                    href="/#services" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Leistungen
-                  </Link>
-                  <Link 
-                    href="/gallery" 
-                    className="block py-3 px-4 text-base font-medium text-green-600 bg-green-50 rounded-lg transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Galerie
-                  </Link>
-                  <Link 
-                    href="/#contact" 
-                    className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Kontakt
-                  </Link>
+                    <X className="w-6 h-6" />
+                  </button>
                 </div>
-              </nav>
+                
+                <nav className="flex-1 px-4 py-6 overflow-y-auto">
+                  <div className="space-y-2">
+                    <Link 
+                      href="/" 
+                      className="block py-3 px-4 text-lg font-medium text-gray-900 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Home
+                    </Link>
+                    <Link 
+                      href="/#about" 
+                      className="block py-3 px-4 text-lg font-medium text-gray-900 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Über uns
+                    </Link>
+                    <Link 
+                      href="/#services" 
+                      className="block py-3 px-4 text-lg font-medium text-gray-900 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Leistungen
+                    </Link>
+                    <Link 
+                      href="/gallery" 
+                      className="block py-3 px-4 text-lg font-medium text-green-600 bg-green-50 rounded-lg transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Galerie
+                    </Link>
+                    <Link 
+                      href="/#contact" 
+                      className="block py-3 px-4 text-lg font-medium text-gray-900 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Kontakt
+                    </Link>
+                  </div>
+                </nav>
+
+                {/* Contact info in mobile menu */}
+                <div className="p-4 border-t border-gray-200 bg-gray-50">
+                  <div className="space-y-3">
+                    <a 
+                      href="tel:+4915901425683" 
+                      className="flex items-center text-gray-700 hover:text-green-600 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
+                      <span className="text-sm font-medium">+49 1590 1425683</span>
+                    </a>
+                    <a 
+                      href="mailto:oliabbruch@gmail.com" 
+                      className="flex items-center text-gray-700 hover:text-green-600 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
+                      <span className="text-sm font-medium">oliabbruch@gmail.com</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </nav>
 
       {/* Gallery Header */}
