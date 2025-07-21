@@ -195,97 +195,68 @@ export default function Home() {
         </div>
         {/* Mobile Navigation Overlay */}
         {isMenuOpen && (
-          <div className="fixed inset-0 z-40 md:hidden">
-            {/* Backdrop */}
-            <div 
-              className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300"
-              onClick={() => setIsMenuOpen(false)}
-            ></div>
-            
-            {/* Menu content */}
-            <div className="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-xl transform transition-transform duration-300 ease-in-out">
-              <div className="flex flex-col h-full">
-                {/* Top bar with logo and close button */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-                  <Image
-                    src="/logo1.jpeg"
-                    alt="Oli Abbruch Logo"
-                    width={120}
-                    height={40}
-                    className="object-contain h-8 w-auto"
-                    priority
-                  />
-                  <button
-                    onClick={() => setIsMenuOpen(false)}
-                    className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-                    aria-label="Menü schließen"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
-                </div>
-                
-                {/* Navigation links */}
-                <nav className="flex-1 px-4 py-6 overflow-y-auto">
-                  <div className="space-y-2">
+          <div className="fixed inset-0 z-50 md:hidden">
+            {/* Full screen overlay */}
+            <div className="absolute inset-0 bg-white">
+              {/* Close button */}
+              <div className="absolute top-4 right-4 z-10">
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                  aria-label="Menü schließen"
+                >
+                  <X className="w-6 h-6 text-gray-700" />
+                </button>
+              </div>
+              
+              {/* Menu content */}
+              <div className="flex flex-col justify-center items-start h-full px-8 py-16">
+                <nav className="w-full">
+                  <div className="space-y-8">
                     <a
                       href="#home"
-                      className="block py-3 px-4 text-lg font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
+                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-[#84a12f] transition-colors duration-300"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Home
                     </a>
                     <a
-                      href="#services"
-                      className="block py-3 px-4 text-lg font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Leistungen
-                    </a>
-                    <a
                       href="#about"
-                      className="block py-3 px-4 text-lg font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
+                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-[#84a12f] transition-colors duration-300"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Über uns
                     </a>
                     <a
-                      href="#gallery"
-                      className="block py-3 px-4 text-lg font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
+                      href="#services"
+                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-[#84a12f] transition-colors duration-300"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Galerie
+                      Vision
+                    </a>
+                    <a
+                      href="#services"
+                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-[#84a12f] transition-colors duration-300"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Leistungen
+                    </a>
+                    <a
+                      href="#gallery"
+                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-[#84a12f] transition-colors duration-300"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Jobs
                     </a>
                     <a
                       href="#contact"
-                      className="block py-3 px-4 text-lg font-medium text-gray-900 hover:text-[#84a12f] hover:bg-green-50 rounded-lg transition-colors duration-200"
+                      className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-[#84a12f] transition-colors duration-300"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Kontakt
                     </a>
                   </div>
                 </nav>
-
-                {/* Contact info in mobile menu */}
-                <div className="p-4 border-t border-gray-200 bg-gray-50">
-                  <div className="space-y-3">
-                    <a 
-                      href="tel:+4915901425683" 
-                      className="flex items-center text-gray-700 hover:text-[#84a12f] transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
-                      <span className="text-sm font-medium">+49 1590 1425683</span>
-                    </a>
-                    <a 
-                      href="mailto:oliabbruch@gmail.com" 
-                      className="flex items-center text-gray-700 hover:text-[#84a12f] transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
-                      <span className="text-sm font-medium">oliabbruch@gmail.com</span>
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
