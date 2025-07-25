@@ -86,163 +86,106 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation - Updated to match the image style */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
-        <div className="w-full px-3 sm:px-4 lg:px-6">
-          
-          {/* Mobile Layout */}
-          <div className="md:hidden">
-            <div className={`flex items-center justify-between transition-all duration-300 ${
-              scrolled ? 'py-2 sm:py-3' : 'py-4 sm:py-6'
-            }`}>
-              <div>
-                <Link href="/">
-                  <Image 
-                    src="/logo1.jpeg" 
-                    alt="Oli Abbruch Logo" 
-                    width={scrolled ? 140 : 160} 
-                    height={scrolled ? 42 : 48} 
-                    className={`transition-all duration-300 object-contain ${
-                      scrolled ? 'h-8 sm:h-10' : 'h-10 sm:h-12'
-                    }`}
-                    priority
-                  />
-                </Link>
-              </div>
-              
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-gray-700 hover:text-green-600 hover:bg-gray-100 transition-colors duration-300 flex-shrink-0"
-                aria-label="Toggle menu"
-              >
-                <div className="flex flex-col space-y-1">
-                  <div className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
-                  <div className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></div>
-                  <div className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
-                </div>
-              </button>
-            </div>
-          </div>
-
-          {/* Desktop Layout - Horizontal navigation like in the image */}
-          <div className="hidden md:flex items-center justify-between py-4 lg:py-6">
-            <div className="flex-shrink-0">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white shadow-lg' : 'bg-white shadow-lg'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`flex justify-between items-center transition-all duration-300 ${
+            scrolled ? 'h-16' : 'h-20'
+          }`}>
+            {/* Logo */}
+            <div className="flex-shrink-0 flex items-center">
               <Link href="/">
                 <Image 
                   src="/logo1.jpeg" 
                   alt="Oli Abbruch Logo" 
-                  width={scrolled ? 160 : 200} 
-                  height={scrolled ? 48 : 60} 
+                  width={scrolled ? 120 : 150} 
+                  height={scrolled ? 40 : 50} 
                   className={`transition-all duration-300 object-contain ${
-                    scrolled ? 'h-10 md:h-12 lg:h-14' : 'h-12 md:h-14 lg:h-16'
+                    scrolled ? 'h-10' : 'h-12'
                   }`}
                   priority
                 />
               </Link>
             </div>
             
-            <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-12">
-              <Link 
-                href="/" 
-                className="text-gray-900 hover:text-green-600 font-medium text-sm md:text-base lg:text-lg transition-colors duration-300"
+            {/* Desktop Navigation */}
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-4">
+                <Link href="/" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-[#84a12f] transition-colors duration-300">
+                  Home
+                </Link>
+                <Link href="/#about" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-[#84a12f] transition-colors duration-300">
+                  Über uns
+                </Link>
+                <Link href="/#services" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-[#84a12f] transition-colors duration-300">
+                  Leistungen
+                </Link>
+                <Link href="/gallery" className="px-3 py-2 rounded-md text-sm font-medium text-[#84a12f] border-b-2 border-[#84a12f] transition-colors duration-300">
+                  Galerie
+                </Link>
+                <Link href="/#contact" className="ml-2 inline-flex items-center px-4 py-2 border border-[#0a3d1a] rounded-full text-sm font-medium text-[#0a3d1a] hover:bg-[#0a3d1a] hover:text-white transition-colors duration-200">
+                  Kontakt
+                  <ArrowRight className="ml-1 w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-2 rounded-md text-gray-900 hover:text-[#84a12f] transition-colors duration-300"
+                aria-label="Toggle menu"
               >
-                Home
-              </Link>
-              <Link 
-                href="/#about" 
-                className="text-gray-900 hover:text-green-600 font-medium text-sm md:text-base lg:text-lg transition-colors duration-300"
-              >
-                Über uns
-              </Link>
-              <Link 
-                href="/#services" 
-                className="text-gray-900 hover:text-green-600 font-medium text-sm md:text-base lg:text-lg transition-colors duration-300"
-              >
-                Leistungen
-              </Link>
-              <Link 
-                href="/gallery" 
-                className="text-green-600 font-medium text-sm md:text-base lg:text-lg transition-colors duration-300 border-b-2 border-green-600"
-              >
-                Galerie
-              </Link>
-              <Link 
-                href="/#contact" 
-                className="bg-green-600 text-white px-3 md:px-4 lg:px-6 py-1.5 md:py-2 rounded-lg font-medium text-sm md:text-base lg:text-lg transition-all duration-300 hover:bg-green-700"
-              >
-                Kontakt
-              </Link>
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile Navigation Overlay */}
-        {isMenuOpen && (
-          <div className="fixed inset-0 z-[9999] bg-white md:hidden">
-            {/* Close button */}
-            <div className="absolute top-4 right-4 z-10">
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                aria-label="Menü schließen"
-              >
-                <X className="w-6 h-6 text-gray-700" />
-              </button>
-            </div>
-            
-            {/* Menu content */}
-            <div className="flex flex-col justify-center items-center h-full px-6 py-16">
-              {/* Logo in menu */}
-              <div className="mb-8">
-                <Image
-                  src="/logo1.jpeg"
-                  alt="Oli Abbruch Logo"
-                  width={200}
-                  height={60}
-                  className="h-12 object-contain"
-                />
-              </div>
-              <nav className="w-full">
-                <div className="space-y-6 text-center">
-                  <Link
-                    href="/"
-                    className="block text-2xl sm:text-3xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    href="/#about"
-                    className="block text-2xl sm:text-3xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Über uns
-                  </Link>
-                  <Link
-                    href="/#services"
-                    className="block text-2xl sm:text-3xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Leistungen
-                  </Link>
-                  <Link
-                    href="/gallery"
-                    className="block text-2xl sm:text-3xl font-light text-green-600 transition-colors duration-300 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Galerie
-                  </Link>
-                  <Link
-                    href="/#contact"
-                    className="block text-2xl sm:text-3xl font-light text-white bg-green-600 hover:bg-green-700 transition-colors duration-300 py-3 px-6 rounded-full mt-6"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Kontakt
-                  </Link>
-                </div>
-              </nav>
-            </div>
+        {/* Mobile Navigation */}
+        <div className={`md:hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+        } overflow-hidden bg-white shadow-lg`}>
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <Link 
+              href="/" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-[#84a12f] hover:bg-gray-50 transition-colors duration-200"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link 
+              href="/#about" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-[#84a12f] hover:bg-gray-50 transition-colors duration-200"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Über uns
+            </Link>
+            <Link 
+              href="/#services" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-[#84a12f] hover:bg-gray-50 transition-colors duration-200"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Leistungen
+            </Link>
+            <Link 
+              href="/gallery" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-[#84a12f] hover:bg-gray-50 transition-colors duration-200"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Galerie
+            </Link>
+            <Link 
+              href="/#contact" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-[#84a12f] hover:bg-gray-50 transition-colors duration-200"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Kontakt
+            </Link>
           </div>
-        )}
+        </div>
       </nav>
 
       {/* Gallery Header */}
