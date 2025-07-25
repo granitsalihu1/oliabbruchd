@@ -91,37 +91,22 @@ export default function Gallery() {
           
           {/* Mobile Layout */}
           <div className="md:hidden">
-            <div className={`flex justify-center transition-all duration-300 ${
+            <div className={`flex items-center justify-between transition-all duration-300 ${
               scrolled ? 'py-2 sm:py-3' : 'py-4 sm:py-6'
             }`}>
-              <Link href="/">
-                <Image 
-                  src="/logo1.jpeg" 
-                  alt="Oli Abbruch Logo" 
-                  width={scrolled ? 300 : 400} 
-                  height={scrolled ? 90 : 120} 
-                  className={`transition-all duration-300 object-contain ${
-                    scrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-24'
-                  }`}
-                  priority
-                />
-              </Link>
-            </div>
-            
-            <div className={`flex items-center justify-center gap-3 pb-3 sm:pb-4 transition-all duration-300 ${
-              scrolled ? 'pb-2 sm:pb-3' : ''
-            }`}>
-              <div className="flex-1 max-w-xs sm:max-w-sm">
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Search className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder=""
-                    className="block w-full pl-10 sm:pl-12 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm sm:text-base shadow-sm"
+              <div>
+                <Link href="/">
+                  <Image 
+                    src="/logo1.jpeg" 
+                    alt="Oli Abbruch Logo" 
+                    width={scrolled ? 140 : 160} 
+                    height={scrolled ? 42 : 48} 
+                    className={`transition-all duration-300 object-contain ${
+                      scrolled ? 'h-8 sm:h-10' : 'h-10 sm:h-12'
+                    }`}
+                    priority
                   />
-                </div>
+                </Link>
               </div>
               
               <button
@@ -130,9 +115,9 @@ export default function Gallery() {
                 aria-label="Toggle menu"
               >
                 <div className="flex flex-col space-y-1">
-                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
-                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
-                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
+                  <div className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
+                  <div className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></div>
+                  <div className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
                 </div>
               </button>
             </div>
@@ -205,47 +190,50 @@ export default function Gallery() {
             </div>
             
             {/* Menu content */}
-            <div className="flex flex-col justify-center items-start h-full px-8 py-16">
+            <div className="flex flex-col justify-center items-center h-full px-6 py-16">
+              {/* Logo in menu */}
+              <div className="mb-8">
+                <Image
+                  src="/logo1.jpeg"
+                  alt="Oli Abbruch Logo"
+                  width={200}
+                  height={60}
+                  className="h-12 object-contain"
+                />
+              </div>
               <nav className="w-full">
-                <div className="space-y-8">
+                <div className="space-y-6 text-center">
                   <Link
                     href="/"
-                    className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
+                    className="block text-2xl sm:text-3xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300 py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Home
                   </Link>
                   <Link
                     href="/#about"
-                    className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
+                    className="block text-2xl sm:text-3xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300 py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Über uns
                   </Link>
                   <Link
                     href="/#services"
-                    className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Vision
-                  </Link>
-                  <Link
-                    href="/#services"
-                    className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
+                    className="block text-2xl sm:text-3xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300 py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Leistungen
                   </Link>
                   <Link
                     href="/gallery"
-                    className="block text-4xl sm:text-5xl font-light text-green-600 transition-colors duration-300"
+                    className="block text-2xl sm:text-3xl font-light text-green-600 transition-colors duration-300 py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Jobs
+                    Galerie
                   </Link>
                   <Link
                     href="/#contact"
-                    className="block text-4xl sm:text-5xl font-light text-gray-900 hover:text-green-600 transition-colors duration-300"
+                    className="block text-2xl sm:text-3xl font-light text-white bg-green-600 hover:bg-green-700 transition-colors duration-300 py-3 px-6 rounded-full mt-6"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Kontakt
