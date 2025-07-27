@@ -1,13 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, ArrowLeft, Search, Menu, X, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowLeft, Menu, X, ZoomIn, ZoomOut } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Gallery() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [zoomLevel, setZoomLevel] = useState(1);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,75 +19,53 @@ export default function Gallery() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const galleryItems = [
-    {
-      id: 1,
-      title: "Kompletter Gebäudeabbruch",
-      description: "Professioneller Abbruch eines mehrstöckigen Wohngebäudes mit modernster Technik",
-      image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "Abbruch"
-    },
-    {
-      id: 2,
-      title: "Entkernung Bürogebäude",
-      description: "Fachgerechte Entkernung eines Bürogebäudes für anschließende Sanierung",
-      image: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "Entkernung"
-    },
-    {
-      id: 3,
-      title: "Schadstoffsanierung",
-      description: "Sichere Entfernung von Asbest und anderen Schadstoffen",
-      image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "Sanierung"
-    },
-    {
-      id: 4,
-      title: "Betonbohrarbeiten",
-      description: "Präzise Bohrungen für Installationen und strukturelle Änderungen",
-      image: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "Betonbohren"
-    },
-    {
-      id: 5,
-      title: "Industriedemontage",
-      description: "Demontage von Industrieanlagen und Maschinen",
-      image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "Demontage"
-    },
-    {
-      id: 6,
-      title: "Selektiver Rückbau",
-      description: "Kontrollierter Rückbau mit Fokus auf Materialrecycling",
-      image: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "Rückbau"
-    },
-    {
-      id: 7,
-      title: "Wohnhaus Entkernung",
-      description: "Vollständige Entkernung eines Einfamilienhauses",
-      image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "Entkernung"
-    },
-    {
-      id: 8,
-      title: "Brückenabbruch",
-      description: "Kontrollierter Abbruch einer Straßenbrücke",
-      image: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "Abbruch"
-    },
-    {
-      id: 9,
-      title: "Tankstellenrückbau",
-      description: "Umweltgerechter Rückbau einer Tankstelle mit Bodensanierung",
-      image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "Sanierung"
+  // Generate 30 images using the available images (cycling through them)
+  const galleryImages = Array.from({ length: 30 }, (_, index) => {
+    const imageNumber = (index % 5) + 1; // Cycle through 1.jpg to 5.jpg
+    return {
+      id: index + 1,
+      src: `/${imageNumber}.jpg`,
+      alt: `Gallery Image ${index + 1}`
+    };
+  });
+
+  const openModal = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+    setZoomLevel(1);
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setZoomLevel(1);
+    document.body.style.overflow = 'unset'; // Restore scrolling
+  };
+
+  const zoomIn = () => {
+    setZoomLevel(prev => Math.min(prev + 0.5, 3));
+  };
+
+  const zoomOut = () => {
+    setZoomLevel(prev => Math.max(prev - 0.5, 0.5));
+  };
+
+  // Close modal on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    if (selectedImage) {
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
     }
-  ];
+  }, [selectedImage]);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation - Updated to match the image style */}
+      {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-white shadow-lg' : 'bg-white shadow-lg'
       }`}>
@@ -126,7 +106,6 @@ export default function Gallery() {
                 </Link>
                 <Link href="/#contact" className="ml-2 inline-flex items-center px-4 py-2 border border-[#0a3d1a] rounded-full text-sm font-medium text-[#0a3d1a] hover:bg-[#0a3d1a] hover:text-white transition-colors duration-200">
                   Kontakt
-                  <ArrowRight className="ml-1 w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -205,8 +184,7 @@ export default function Gallery() {
               Unsere Projekte
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4">
-              Entdecken Sie eine umfassende Auswahl unserer erfolgreich abgeschlossenen Abbruch-, Entkerrungs- und Sanierungsprojekte. 
-              Jedes Projekt zeigt unsere Expertise und unser Engagement für Qualität und Sicherheit.
+              Entdecken Sie eine umfassende Auswahl unserer erfolgreich abgeschlossenen Abbruch-, Entkerrungs- und Sanierungsprojekte.
             </p>
           </div>
         </div>
@@ -215,63 +193,86 @@ export default function Gallery() {
       {/* Gallery Grid */}
       <section className="py-10 sm:py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {galleryItems.map((item) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
+            {galleryImages.map((image) => (
               <div 
-                key={item.id}
-                className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-2"
+                key={image.id}
+                className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer aspect-square"
+                onClick={() => openModal(image.src)}
               >
-                <div className="relative h-48 sm:h-64 md:h-72 lg:h-80">
-                  <img 
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute top-2 left-2 sm:top-4 sm:left-4">
-                    <span 
-                      className="px-2 py-1 sm:px-3 text-xs sm:text-sm font-semibold text-white rounded-full"
-                      style={{ backgroundColor: '#84a12f' }}
-                    >
-                      {item.category}
-                    </span>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 text-white">
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 group-hover:text-green-400 transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm opacity-90 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-green-600 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-center text-white p-3 sm:p-4 md:p-6">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4">{item.title}</h3>
-                    <p className="text-sm sm:text-base md:text-lg mb-3 sm:mb-6">{item.description}</p>
-                    <button 
-                      className="bg-white text-green-600 px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 text-sm sm:text-base"
-                    >
-                      Details anzeigen
-                    </button>
+                <img 
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-white bg-opacity-90 rounded-full p-2">
+                      <ZoomIn className="w-6 h-6 text-gray-800" />
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          
-          <div className="text-center mt-8 sm:mt-12 md:mt-16">
-            <Link 
-              href="/#contact" 
-              className="inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 bg-green-600 text-white font-bold rounded-lg text-sm sm:text-base md:text-lg transition-all duration-300 transform hover:scale-105 hover:bg-green-700"
-            >
-              Ihr Projekt anfragen
-            </Link>
-          </div>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-[100] bg-black bg-opacity-90 flex items-center justify-center p-4">
+          {/* Modal Controls */}
+          <div className="absolute top-4 right-4 z-10 flex items-center space-x-2">
+            <button
+              onClick={zoomOut}
+              className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-all duration-200"
+              disabled={zoomLevel <= 0.5}
+            >
+              <ZoomOut className="w-5 h-5" />
+            </button>
+            <button
+              onClick={zoomIn}
+              className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-all duration-200"
+              disabled={zoomLevel >= 3}
+            >
+              <ZoomIn className="w-5 h-5" />
+            </button>
+            <button
+              onClick={closeModal}
+              className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-all duration-200"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Zoom Level Indicator */}
+          <div className="absolute top-4 left-4 z-10">
+            <div className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">
+              {Math.round(zoomLevel * 100)}%
+            </div>
+          </div>
+
+          {/* Image Container */}
+          <div className="relative max-w-full max-h-full overflow-auto">
+            <img
+              src={selectedImage}
+              alt="Gallery Image"
+              className="max-w-none transition-transform duration-300 cursor-move"
+              style={{
+                transform: `scale(${zoomLevel})`,
+                transformOrigin: 'center center'
+              }}
+              draggable={false}
+            />
+          </div>
+
+          {/* Click outside to close */}
+          <div 
+            className="absolute inset-0 -z-10"
+            onClick={closeModal}
+          />
+        </div>
+      )}
 
       {/* Footer */}
       <footer className="py-8 sm:py-10 md:py-12" style={{ backgroundColor: '#84a12f' }}>
