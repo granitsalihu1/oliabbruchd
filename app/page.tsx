@@ -447,16 +447,16 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {/* Gallery items with responsive hover effects */}
             {[
-              { title: "Gebäudeabbruch", desc: "Kompletter Rückbau eines Wohngebäudes", img: "1216589" },
-              { title: "Entkernung", desc: "Fachgerechte Entkernung für Sanierung", img: "2219024" },
-              { title: "Schadstoffsanierung", desc: "Sichere Asbestentfernung", img: "1216589" },
-              { title: "Betonbohren", desc: "Präzise Bohrarbeiten in Beton", img: "2219024" },
-              { title: "Demontage", desc: "Sorgfältige Demontage von Anlagen", img: "1216589" },
-              { title: "Rückbau", desc: "Kontrollierter Rückbau komplexer Strukturen", img: "2219024" }
+                 { title: "Gebäudeabbruch", desc: "Kompletter Rückbau eines Wohngebäudes", img: "1.jpg" },
+              { title: "Entkernung", desc: "Fachgerechte Entkernung für Sanierung", img: "2.jpg" },
+              { title: "Schadstoffsanierung", desc: "Sichere Asbestentfernung", img: "3.jpg" },
+              { title: "Betonbohren", desc: "Präzise Bohrarbeiten in Beton", img: "4.jpg" },
+              { title: "Demontage", desc: "Sorgfältige Demontage von Anlagen", img: "5.jpg" },
+              { title: "Rückbau", desc: "Kontrollierter Rückbau komplexer Strukturen", img: "1.jpg" }
             ].map((item, index) => (
               <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
                 <img
-                  src={`https://images.pexels.com/photos/${item.img}/pexels-photo-${item.img}.jpeg?auto=compress&cs=tinysrgb&w=600`}
+                     src={`/${item.img}`}
                   alt={item.title}
                   className="w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
