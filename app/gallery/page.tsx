@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, ArrowLeft, Search, Menu, X } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowLeft, Search, Menu, X, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
