@@ -44,12 +44,12 @@ export default function Header({ currentPage = "" }: HeaderProps) {
           <div className="flex-shrink-0 flex items-center">
             <Link href="/">
               <Image 
-                src="/logo1.jpeg" 
+                src="/logo1.jpeg"
                 alt="Oli Abbruch Logo" 
                 width={scrolled ? 120 : 150} 
                 height={scrolled ? 40 : 50} 
                 className={`transition-all duration-300 object-contain ${
-                  scrolled ? 'h-10' : 'h-12'
+                  scrolled ? 'h-50' : 'h-50'
                 }`}
                 priority
               />
