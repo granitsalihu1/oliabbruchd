@@ -124,7 +124,7 @@ export default function Home() {
         <div className="relative z-10 text-center text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-12">
           {/* Small tagline */}
           <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl mb-2 sm:mb-3 md:mb-4 tracking-wider uppercase font-medium text-white/80">
-            Oli Abbruch &amp; Sanierung
+            Oli Abbruch &amp; Entkernung
           </p>
           {/* Multi‑line headline where the last line uses the accent colour */}
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-tight mb-3 sm:mb-4 md:mb-6">
@@ -433,7 +433,7 @@ export default function Home() {
             {/* Branding and tagline */}
             <div className="sm:col-span-2 md:col-span-1">
               <Image
-                src="/dqwe.jpeg"
+                src="/dcc-removebg-preview.png"
                 alt="Oli Abbruch Logo"
                 width={140}
                 height={42}
@@ -452,16 +452,7 @@ export default function Home() {
                     Abbruch
                   </a>
                 </li>
-                <li>
-                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
-                    Erdbau
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="hover:text-[#84a12f] transition-colors">
-                    Tiefbau
-                  </a>
-                </li>
+               
                 <li>
                   <a href="#contact" className="hover:text-[#84a12f] transition-colors">
                     Weitere Dienstleistungen
@@ -547,7 +538,7 @@ export default function Home() {
           {/* Bottom row with social icons and copyright */}
           <div className="mt-6 sm:mt-8 md:mt-12 pt-4 sm:pt-6 md:pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
             <p className="text-xs sm:text-sm text-center sm:text-left">
-              © 2024 Oli Abbruch. Alle Rechte vorbehalten.
+              © 2024 Oli Abbruch. Alle Rechte vorbehalten. Designed by Eclipse Branding
             </p>
             <div className="flex space-x-3 sm:space-x-4">
               <a href="#" className="hover:text-[#84a12f] transition-colors" aria-label="Facebook">
