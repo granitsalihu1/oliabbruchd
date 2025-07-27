@@ -103,108 +103,83 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* Header / Navigation */}
          <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-white shadow-lg' : 'bg-white'
       }`}>
-        <div className="w-full px-3 sm:px-4 lg:px-6">
-          
-        
-
-          {/* Desktop Layout: Logo Left + Navigation Right */}
-          <div className="hidden md:flex items-center justify-between py-4 lg:py-6">
-            {/* Logo on the left */}
-            <div className="flex-shrink-0">
+       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`flex justify-between items-center transition-all duration-300 ${
+            scrolled ? 'h-16' : 'h-20'
+          }`}>
+            {/* Logo */}
+            <div className="flex-shrink-0 flex items-center">
               <Image 
                 src="/logo1.jpeg" 
                 alt="Oli Abbruch Logo" 
-                width={scrolled ? 180 : 220} 
-                height={scrolled ? 60 : 80} 
+                width={scrolled ? 120 : 150} 
+                height={scrolled ? 40 : 50} 
                 className={`transition-all duration-300 object-contain ${
-                  scrolled ? 'h-12 lg:h-16' : 'h-16 lg:h-20'
+                  scrolled ? 'h-10' : 'h-12'
                 }`}
                 priority
               />
             </div>
             
-            {/* Navigation Menu on the right */}
-            <div className="flex items-center space-x-8 lg:space-x-12">
-              <a 
-                href="#home" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
-              >
-                Abbruch
-              </a>
-              <a 
-                href="#services" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
-              >
-                Erdbau
-              </a>
-              <a 
-                href="#about" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
-              >
-                Tiefbau
-              </a>
-              <a 
-                href="#contact" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
-              >
-                Weitere Dienstleistungen
-              </a>
-              <a 
-                href="#about" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
-              >
-                Über uns
-              </a>
-              <a 
-                href="#contact" 
-                className="text-gray-900 hover:text-orange-600 font-medium text-lg transition-colors duration-300"
-              >
-                Kontakt
-              </a>
+            {/* Desktop Navigation */}
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-4">
+                <a href="#home" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                  scrolled ? 'text-gray-900 hover:text-[#84a12f]' : 'text-black hover:text-[#84a12f]'
+                }`}>
+                  Abbruch
+                </a>
+                <a href="#services" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                  scrolled ? 'text-gray-900 hover:text-[#84a12f]' : 'text-black hover:text-[#84a12f]'
+                }`}>
+                  Erdbau
+                </a>
+                <a href="#about" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                  scrolled ? 'text-gray-900 hover:text-[#84a12f]' : 'text-black hover:text-[#84a12f]'
+                }`}>
+                  Tiefbau
+                </a>
+                <a href="#services" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                  scrolled ? 'text-gray-900 hover:text-[#84a12f]' : 'text-black hover:text-[#84a12f]'
+                }`}>
+                  Weitere Dienstleistungen
+                </a>
+                <a href="#gallery" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                  scrolled ? 'text-gray-900 hover:text-[#84a12f]' : 'text-black hover:text-[#84a12f]'
+                }`}>
+                  Galerie
+                </a>
+                <a href="#contact" className={`ml-2 inline-flex items-center px-4 py-2 border border-[#0a3d1a] rounded-full text-sm font-medium transition-colors duration-200 ${
+                  scrolled ? 'text-[#0a3d1a] hover:bg-[#0a3d1a] hover:text-black' : 'text-black border-black hover:bg-black hover:text-[#0a3d1a]'
+                }`}>
+                  Kontakt
+                  <ArrowRight className="ml-1 w-4 h-4" />
+                </a>
+              </div>
             </div>
-          </div>
-        </div>
-  {/* Mobile Layout: Centered Logo + Search + Menu */}
-          <div className="md:hidden">
-            {/* Top Row: HUGE Logo Centered */}
-            <div className={`flex justify-center transition-all duration-300 ${
-              scrolled ? 'py-2 sm:py-3' : 'py-4 sm:py-6'
-            }`}>
-              <Image 
-                src="/logo1.jpeg" 
-                alt="Oli Abbruch Logo" 
-                width={scrolled ? 300 : 400} 
-                height={scrolled ? 90 : 120} 
-                className={`transition-all duration-300 object-contain ${
-                  scrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-24'
-                }`}
-                priority
-              />
-            </div>
-            
 
-            <div className={`flex items-center justify-center gap-3 pb-3 sm:pb-4 transition-all duration-300 ${
-              scrolled ? 'pb-2 sm:pb-3' : ''
-            }`}>
-        
-              
-              {/* Menu Dots */}
+            {/* Mobile menu button */}
+            <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100 transition-colors duration-300 flex-shrink-0"
+                className={`p-2 rounded-md transition-colors duration-300 ${
+                  scrolled ? 'text-gray-900 hover:text-[#84a12f]' : 'text-white hover:text-[#84a12f]'
+                }`}
                 aria-label="Toggle menu"
               >
-                <div className="flex flex-col space-y-1">
-                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
-                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
-                  <div className="w-5 sm:w-6 h-0.5 bg-current rounded-full"></div>
-                </div>
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
-        {/* Mobile Navigation Overlay */}
+        </div>
+          <div className="md:hidden">
+           
+            
+
+         
+          </div>
         <div className={`fixed inset-0 z-40 transition-all duration-300 ease-in-out md:hidden ${
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}>
@@ -443,7 +418,7 @@ export default function Home() {
             <div className="relative mt-6 sm:mt-8 lg:mt-0">
               <div className="relative w-full h-64 sm:h-80 md:h-96">
                 <img
-                  src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="./logo1.jpeg"
                   alt="Baustelle"
                   className="rounded-xl w-full h-full object-cover shadow-2xl"
                 />
