@@ -64,16 +64,8 @@ export default function Header({ currentPage = "" }: HeaderProps) {
               }`}>
                 Abbruch
               </Link>
-              <Link href="/#services" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-                scrolled ? 'text-gray-900 hover:text-[#84a12f]' : 'text-black hover:text-[#84a12f]'
-              }`}>
-                Erdbau
-              </Link>
-              <Link href="/#about" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-                scrolled ? 'text-gray-900 hover:text-[#84a12f]' : 'text-black hover:text-[#84a12f]'
-              }`}>
-                Tiefbau
-              </Link>
+         
+         
               <Link href="/#services" className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
                 scrolled ? 'text-gray-900 hover:text-[#84a12f]' : 'text-black hover:text-[#84a12f]'
               }`}>
@@ -144,20 +136,7 @@ export default function Header({ currentPage = "" }: HeaderProps) {
                 >
                   Abbruch
                 </Link>
-                <Link 
-                  href="/#services" 
-                  className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Erdbau
-                </Link>
-                <Link 
-                  href="/#about" 
-                  className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Tiefbau
-                </Link>
+                
                 <Link 
                   href="/#services" 
                   className="block py-3 px-4 text-base font-medium text-gray-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors duration-200"
