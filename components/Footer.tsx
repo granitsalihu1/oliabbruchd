@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Branding and tagline */}
           <div className="sm:col-span-2 md:col-span-1">
             <Image
-              src="/footerd.png"
+              src="/dcc-removebg-preview.png"
               alt="Oli Abbruch Logo"
               width={140}
               height={42}
