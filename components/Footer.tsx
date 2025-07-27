@@ -124,7 +124,7 @@ export default function Footer() {
         {/* Bottom row with social icons and copyright */}
         <div className="mt-6 sm:mt-8 md:mt-12 pt-4 sm:pt-6 md:pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <p className="text-xs sm:text-sm text-center sm:text-left">
-            © 2024 Oli Abbruch. Alle Rechte vorbehalten. Designed by Eclipse Branding
+            © 2025 Oli Abbruch. Alle Rechte vorbehalten. Designed by Eclipse Branding
           </p>
           <div className="flex space-x-3 sm:space-x-4">
             <a href="#" className="hover:text-[#84a12f] transition-colors" aria-label="Facebook">
