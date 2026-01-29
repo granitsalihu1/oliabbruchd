@@ -146,8 +146,8 @@ export default function Gallery() {
       <section id="servicegebiet" className="py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center md:flex-row md:items-start gap-4 sm:gap-6 md:gap-8 text-center md:text-left">
-            <span className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full bg-[#84a12f]/10 mb-2 md:mb-0 flex-shrink-0">
-              <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-[#84a12f]">📍</span>
+            <span className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full bg-[#c2030b]/10 mb-2 md:mb-0 flex-shrink-0">
+              <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-[#c2030b]">📍</span>
             </span>
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4">

@@ -119,7 +119,7 @@ export default function Home() {
               "url('https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')",
           }}
         >
-          <div className="absolute inset-0 bg-[#0a3d1a] opacity-70"></div>
+          <div className="absolute inset-0 bg-[#1b0808] opacity-70"></div>
         </div>
         <div className="relative z-10 text-center text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-12">
           {/* Small tagline */}
@@ -130,7 +130,7 @@ export default function Home() {
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-tight mb-3 sm:mb-4 md:mb-6">
             <span className="block text-white">Abbruch mit Präzision.</span>
             <span className="block text-white">Entkernung mit Charakter.</span>
-            <span className="block" style={{ color: "#84a12f" }}>
+            <span className="block" style={{ color: "#c2030b" }}>
               Sanierung mit Konzept.
             </span>
           </h1>
@@ -142,13 +142,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center">
             <a
               href="#services"
-              className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-[#0a3d1a] text-white font-semibold rounded-full shadow hover:bg-[#084c1d] transition-colors duration-300 text-sm sm:text-base lg:text-lg w-full sm:w-auto max-w-xs sm:max-w-none"
+              className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-[#1b0808] text-white font-semibold rounded-full shadow hover:bg-[#6c0204] transition-colors duration-300 text-sm sm:text-base lg:text-lg w-full sm:w-auto max-w-xs sm:max-w-none"
             >
               Mehr erfahren
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-[#0a3d1a] transition-colors duration-300 text-sm sm:text-base lg:text-lg w-full sm:w-auto max-w-xs sm:max-w-none"
+              className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-[#c2030b] transition-colors duration-300 text-sm sm:text-base lg:text-lg w-full sm:w-auto max-w-xs sm:max-w-none"
             >
               Kontakt
               <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
@@ -174,7 +174,7 @@ export default function Home() {
                 key={index}
                 className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
               >
-                <div className="mb-3 sm:mb-4 md:mb-6" style={{ color: "#84a12f" }}>
+                <div className="mb-3 sm:mb-4 md:mb-6" style={{ color: "#c2030b" }}>
                   {service.icon}
                 </div>
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4">
@@ -205,8 +205,8 @@ export default function Home() {
               </p>
               <div className="space-y-3 sm:space-y-4 md:space-y-6">
                 <div className="flex items-start">
-                  <span className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-[#84a12f]/10">
-                    <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: "#84a12f" }} />
+                  <span className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-[#c2030b]/10">
+                    <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: "#c2030b" }} />
                   </span>
                   <div className="ml-2 sm:ml-3 md:ml-4">
                     <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">
@@ -219,8 +219,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <span className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-[#84a12f]/10">
-                    <Users className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: "#84a12f" }} />
+                  <span className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-[#c2030b]/10">
+                    <Users className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: "#c2030b" }} />
                   </span>
                   <div className="ml-2 sm:ml-3 md:ml-4">
                     <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1">
@@ -236,8 +236,8 @@ export default function Home() {
               <div className="mt-4 sm:mt-6 md:mt-8">
                 <a
                   href="#contact"
-                  className="inline-block px-4 sm:px-6 py-2 sm:py-3 text-white font-semibold rounded-full transition-colors duration-300 hover:bg-[#084c1d] text-sm sm:text-base"
-                  style={{ backgroundColor: "#0a3d1a" }}
+                  className="inline-block px-4 sm:px-6 py-2 sm:py-3 text-white font-semibold rounded-full transition-colors duration-300 hover:bg-[#6c0204] text-sm sm:text-base"
+                  style={{ backgroundColor: "#1b0808" }}
                 >
                   Jetzt Kontakt aufnehmen
                 </a>
@@ -253,7 +253,7 @@ export default function Home() {
                 />
                
               </div>
-              <div className="absolute -bottom-3 sm:-bottom-4 md:-bottom-6 left-1/2 transform -translate-x-1/2 bg-[#0a3d1a] text-white py-2 sm:py-3 md:py-4 px-3 sm:px-4 md:px-6 rounded-lg shadow-xl">
+              <div className="absolute -bottom-3 sm:-bottom-4 md:-bottom-6 left-1/2 transform -translate-x-1/2 bg-[#1b0808] text-white py-2 sm:py-3 md:py-4 px-3 sm:px-4 md:px-6 rounded-lg shadow-xl">
                 <p className="text-lg sm:text-xl md:text-2xl font-bold">15+</p>
                 <p className="text-xs sm:text-sm">Jahre Erfahrung</p>
               </div>
@@ -301,8 +301,8 @@ export default function Home() {
           <div className="text-center mt-6 sm:mt-8 md:mt-12">
             <a
               href="./gallery"
-              className="inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-white font-bold rounded-lg text-sm sm:text-base md:text-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#084c1d]"
-              style={{ backgroundColor: "#0a3d1a" }}
+              className="inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-white font-bold rounded-lg text-sm sm:text-base md:text-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#6c0204]"
+              style={{ backgroundColor: "#1b0808" }}
             >
               Projekt anfragen
             </a>
@@ -311,7 +311,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24 text-white" style={{ backgroundColor: "#84a12f" }}>
+      <section id="contact" className="py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24 text-white" style={{ backgroundColor: "#c2030b" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6">Kontakt</h2>
@@ -325,7 +325,7 @@ export default function Home() {
             <div className="space-y-4 sm:space-y-6 md:space-y-8">
               <div className="flex items-start">
                 <span className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center mr-2 sm:mr-3 md:mr-4 flex-shrink-0">
-                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: "#84a12f" }} />
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: "#c2030b" }} />
                 </span>
                 <div>
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">Telefon</h3>
@@ -336,7 +336,7 @@ export default function Home() {
               </div>
               <div className="flex items-start">
                 <span className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center mr-2 sm:mr-3 md:mr-4 flex-shrink-0">
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: "#84a12f" }} />
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: "#c2030b" }} />
                 </span>
                 <div>
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">E‑Mail</h3>
@@ -347,19 +347,24 @@ export default function Home() {
               </div>
               <div className="flex items-start">
                 <span className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center mr-2 sm:mr-3 md:mr-4 flex-shrink-0">
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: "#84a12f" }} />
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: "#c2030b" }} />
                 </span>
                 <div>
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">Adresse</h3>
-                  <p className="text-sm sm:text-base md:text-lg text-white">Ariol Demiri</p>
-                  <p className="text-sm sm:text-base md:text-lg text-white">Marktplatz 10</p>
-                  <p className="text-sm sm:text-base md:text-lg text-white">73650 Winterbach</p>
+                  <p className="text-sm sm:text-base md:text-lg text-white">Beethovenstr 19</p>
+                  <p className="text-sm sm:text-base md:text-lg text-white">73642 Welzheim</p>
+                  <div className="mt-2 text-white text-xs sm:text-sm md:text-base">
+                    Wir sind OLI ABBRUCH aus Welzheim.<br />
+                    Wir bieten Abbruch, Entkernung, Betonbohren, Altbausanierung und Schadstoffentkernung.<br />
+                    Schnell, sauber und zuverlässig.<br />
+                    Rufen Sie uns an: 015901425683
+                  </div>
                 </div>
               </div>
             </div>
             {/* Contact Form */}
             <div>
-              <div className="bg-[#0a3d1a] text-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+              <div className="bg-[#1b0808] text-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 md:mb-6">Kontaktformular</h3>
                 <form className="space-y-3 sm:space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -367,36 +372,36 @@ export default function Home() {
                       type="text"
                       name="firstName"
                       placeholder="Vorname"
-                      className="w-full border border-[#84a12f] rounded-md p-2 sm:p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#84a12f] text-sm sm:text-base"
+                      className="w-full border border-[#c2030b] rounded-md p-2 sm:p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#c2030b] text-sm sm:text-base"
                     />
                     <input
                       type="text"
                       name="lastName"
                       placeholder="Nachname"
-                      className="w-full border border-[#84a12f] rounded-md p-2 sm:p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#84a12f] text-sm sm:text-base"
+                      className="w-full border border-[#c2030b] rounded-md p-2 sm:p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#c2030b] text-sm sm:text-base"
                     />
                   </div>
                   <input
                     type="email"
                     name="email"
                     placeholder="E‑Mail"
-                    className="w-full border border-[#84a12f] rounded-md p-2 sm:p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#84a12f] text-sm sm:text-base"
+                    className="w-full border border-[#c2030b] rounded-md p-2 sm:p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#c2030b] text-sm sm:text-base"
                   />
                   <input
                     type="tel"
                     name="phone"
                     placeholder="Telefonnummer"
-                    className="w-full border border-[#84a12f] rounded-md p-2 sm:p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#84a12f] text-sm sm:text-base"
+                    className="w-full border border-[#c2030b] rounded-md p-2 sm:p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#c2030b] text-sm sm:text-base"
                   />
                   <textarea
                     name="message"
                     placeholder="Beschreibung"
                     rows={4}
-                    className="w-full border border-[#84a12f] rounded-md p-2 sm:p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#84a12f] text-sm sm:text-base"
+                    className="w-full border border-[#c2030b] rounded-md p-2 sm:p-3 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#c2030b] text-sm sm:text-base"
                   ></textarea>
                   <button
                     type="submit"
-                    className="w-full bg-[#0a3d1a] text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-md hover:bg-[#084c1d] transition-colors duration-300 text-sm sm:text-base"
+                    className="w-full bg-[#1b0808] text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-md hover:bg-[#6c0204] transition-colors duration-300 text-sm sm:text-base"
                   >
                     Senden
                   </button>
@@ -411,8 +416,8 @@ export default function Home() {
       <section id="servicegebiet" className="py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center md:flex-row md:items-start gap-4 sm:gap-6 md:gap-8 text-center md:text-left">
-            <span className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full bg-[#84a12f]/10 mb-2 md:mb-0 flex-shrink-0">
-              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" style={{ color: "#84a12f" }} />
+            <span className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full bg-[#c2030b]/10 mb-2 md:mb-0 flex-shrink-0">
+              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" style={{ color: "#c2030b" }} />
             </span>
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4">
@@ -427,7 +432,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0a3d1a] text-white py-8 sm:py-10 md:py-12 lg:py-16">
+      <footer className="bg-[#1b0808] text-white py-8 sm:py-10 md:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {/* Branding and tagline */}
@@ -448,23 +453,23 @@ export default function Home() {
               <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">Informationen</h3>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
                 <li>
-                  <a href="#home" className="hover:text-[#84a12f] transition-colors">
+                  <a href="#home" className="hover:text-[#c2030b] transition-colors">
                     Abbruch
                   </a>
                 </li>
                
                 <li>
-                  <a href="#contact" className="hover:text-[#84a12f] transition-colors">
+                  <a href="#contact" className="hover:text-[#c2030b] transition-colors">
                     Weitere Dienstleistungen
                   </a>
                 </li>
                 <li>
-                  <a href="#gallery" className="hover:text-[#84a12f] transition-colors">
+                  <a href="#gallery" className="hover:text-[#c2030b] transition-colors">
                     Galerie
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="hover:text-[#84a12f] transition-colors">
+                  <a href="#about" className="hover:text-[#c2030b] transition-colors">
                     Über uns
                   </a>
                 </li>
@@ -475,25 +480,25 @@ export default function Home() {
               <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">Kontakt</h3>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
                 <li className="flex items-center">
-                  <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 flex-shrink-0" style={{ color: "#84a12f" }} />
-                  <a href="tel:+4915901425683" className="hover:text-[#84a12f] transition-colors">
+                  <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 flex-shrink-0" style={{ color: "#c2030b" }} />
+                  <a href="tel:+4915901425683" className="hover:text-[#c2030b] transition-colors">
                     +49 1590 1425683
                   </a>
                 </li>
                 <li className="flex items-center">
-                  <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 flex-shrink-0" style={{ color: "#84a12f" }} />
-                  <a href="mailto:oliabbruch@gmail.com" className="hover:text-[#84a12f] transition-colors break-all">
+                  <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 flex-shrink-0" style={{ color: "#c2030b" }} />
+                  <a href="mailto:oliabbruch@gmail.com" className="hover:text-[#c2030b] transition-colors break-all">
                     oliabbruch@gmail.com
                   </a>
                 </li>
                 <li className="flex items-start">
-                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 mt-0.5 flex-shrink-0" style={{ color: "#84a12f" }} />
+                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 mt-0.5 flex-shrink-0" style={{ color: "#c2030b" }} />
                   <span>
-                    Ariol Demiri
-                    <br />
-                    Marktplatz 10
-                    <br />
-                    73650 Winterbach
+                    Beethovenstr 19<br />73642 Welzheim<br />
+                    Wir sind OLI ABBRUCH aus Welzheim.<br />
+                    Wir bieten Abbruch, Entkernung, Betonbohren, Altbausanierung und Schadstoffentkernung.<br />
+                    Schnell, sauber und zuverlässig.<br />
+                    Rufen Sie uns an: 015901425683
                   </span>
                 </li>
               </ul>
@@ -503,32 +508,32 @@ export default function Home() {
               <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">Leistungen</h3>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
                 <li>
-                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                  <a href="#services" className="hover:text-[#c2030b] transition-colors">
                     Abbruch
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                  <a href="#services" className="hover:text-[#c2030b] transition-colors">
                     Entkernung
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                  <a href="#services" className="hover:text-[#c2030b] transition-colors">
                     Demontage
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                  <a href="#services" className="hover:text-[#c2030b] transition-colors">
                     Rückbau
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                  <a href="#services" className="hover:text-[#c2030b] transition-colors">
                     Schadstoffsanierung
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-[#84a12f] transition-colors">
+                  <a href="#services" className="hover:text-[#c2030b] transition-colors">
                     Betonbohren
                   </a>
                 </li>
@@ -541,13 +546,13 @@ export default function Home() {
               © 2025 Oli Abbruch. Alle Rechte vorbehalten. Designed by Eclipse Branding
             </p>
             <div className="flex space-x-3 sm:space-x-4">
-              <a href="#" className="hover:text-[#84a12f] transition-colors" aria-label="Facebook">
+              <a href="#" className="hover:text-[#c2030b] transition-colors" aria-label="Facebook">
                 <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
-              <a href="#" className="hover:text-[#84a12f] transition-colors" aria-label="Instagram">
+              <a href="#" className="hover:text-[#c2030b] transition-colors" aria-label="Instagram">
                 <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
-              <a href="#" className="hover:text-[#84a12f] transition-colors" aria-label="YouTube">
+              <a href="#" className="hover:text-[#c2030b] transition-colors" aria-label="YouTube">
                 <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
             </div>
