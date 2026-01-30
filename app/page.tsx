@@ -247,7 +247,7 @@ export default function Home() {
             <div className="relative mt-6 sm:mt-8 lg:mt-0">
               <div className="relative w-full h-64 sm:h-80 md:h-96">
                 <img
-                  src="./dqwe.jpeg"
+                  src="./logo.jpeg"
                   alt="Baustelle"
                   className="rounded-xl w-full h-full object-cover shadow-2xl"
                 />
@@ -438,7 +438,7 @@ export default function Home() {
             {/* Branding and tagline */}
             <div className="sm:col-span-2 md:col-span-1">
               <Image
-                src="/dcc-removebg-preview.png"
+                src="/logo.jpeg"
                 alt="Oli Abbruch Logo"
                 width={140}
                 height={200}

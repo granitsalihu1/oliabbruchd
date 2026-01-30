@@ -48,7 +48,7 @@ export default function Header({ currentPage = "" }: HeaderProps) {
                 alt="Oli Abbruch Logo" 
                 width={scrolled ? 120 : 150} 
                 height={scrolled ? 40 : 50} 
-                className={`transition-all duration-300 object-contain rounded-lg shadow-md border-2 border-[#c2030b] bg-white ${
+                className={`transition-all duration-300 object-contain  ${
                   scrolled ? 'h-10' : 'h-14'
                 }`}
                 priority
